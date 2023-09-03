@@ -103,202 +103,204 @@ const TramiteProvider = ({ children }) => {
         {
           tramites: [
             {
-                "nombre": "Tipo (autorización, Aviso, Aviso, Informe, Solicitud, Informe, Registro)",
-                "valor": tipo
+              nombre:
+                "Tipo (autorización, Aviso, Aviso, Informe, Solicitud, Informe, Registro)",
+              valor: tipo,
             },
             {
-                "nombre": "Periodo O Etapa Del Contrato (eta, Exploración, Desarrollo O Cierre)",
-                "valor": periodo
+              nombre:
+                "Periodo O Etapa Del Contrato (eta, Exploración, Desarrollo O Cierre)",
+              valor: periodo,
             },
             {
-                "nombre": "Eta Sin Transición",
-                "valor": etaSinTransicion
+              nombre: "Eta Sin Transición",
+              valor: etaSinTransicion,
             },
             {
-                "nombre": "Eta Con Transición",
-                "valor": etaConTransicion
+              nombre: "Eta Con Transición",
+              valor: etaConTransicion,
             },
             {
-                "nombre": "Antes De Exploración",
-                "valor": antesExploracion
+              nombre: "Antes De Exploración",
+              valor: antesExploracion,
             },
             {
-                "nombre": "Exploración (evaluación De Potencial)",
-                "valor": exploracionEvaluacionPotencial
+              nombre: "Exploración (evaluación De Potencial)",
+              valor: exploracionEvaluacionPotencial,
             },
             {
-                "nombre": "Exploración (incorporacion De Reservas)",
-                "valor": exploracionIncorporacionReservas
+              nombre: "Exploración (incorporacion De Reservas)",
+              valor: exploracionIncorporacionReservas,
             },
             {
-                "nombre": "Exploración (programa De  Evaluación)",
-                "valor": exploracionProgramaEvaluacion
+              nombre: "Exploración (programa De  Evaluación)",
+              valor: exploracionProgramaEvaluacion,
             },
             {
-                "nombre": "Revaluación",
-                "valor": revaluacion
+              nombre: "Revaluación",
+              valor: revaluacion,
             },
             {
-                "nombre": "Producción Temprana",
-                "valor": produccionTemprana
+              nombre: "Producción Temprana",
+              valor: produccionTemprana,
             },
             {
-                "nombre": "Antes De Desarrollo",
-                "valor": antesDesarrollo
+              nombre: "Antes De Desarrollo",
+              valor: antesDesarrollo,
             },
             {
-                "nombre": "Antes De Inicio De Producción",
-                "valor": antesInicioProduccion
+              nombre: "Antes De Inicio De Producción",
+              valor: antesInicioProduccion,
             },
             {
-                "nombre": "Producción Regular",
-                "valor": produccionRegular
+              nombre: "Producción Regular",
+              valor: produccionRegular,
             },
             {
-                "nombre": "Abandono",
-                "valor": abandono
+              nombre: "Abandono",
+              valor: abandono,
             },
             {
-                "nombre": "Devolución Del Área (etf)",
-                "valor": devolucionArea
+              nombre: "Devolución Del Área (etf)",
+              valor: devolucionArea,
             },
             {
-                "nombre": "Regulación",
-                "valor": regulacion
+              nombre: "Regulación",
+              valor: regulacion,
             },
             {
-                "nombre": "Regulación Corto",
-                "valor": regulacionCorto
+              nombre: "Regulación Corto",
+              valor: regulacionCorto,
             },
             {
-                "nombre": "Artículo O  Numeral",
-                "valor": articuloNumeral
+              nombre: "Artículo O  Numeral",
+              valor: articuloNumeral,
             },
             {
-                "nombre": "Dependencia(s)",
-                "valor": dependencias
+              nombre: "Dependencia(s)",
+              valor: dependencias,
             },
             {
-                "nombre": "Detonante",
-                "valor": detonante
+              nombre: "Detonante",
+              valor: detonante,
             },
             {
-                "nombre": "Aguas Profundas",
-                "valor": aguasProfundas
+              nombre: "Aguas Profundas",
+              valor: aguasProfundas,
             },
             {
-                "nombre": "Aguas Someras",
-                "valor": aguasSomeras
+              nombre: "Aguas Someras",
+              valor: aguasSomeras,
             },
             {
-                "nombre": "Terrestres",
-                "valor": terrestres
+              nombre: "Terrestres",
+              valor: terrestres,
             },
             {
-                "nombre": "Presentación",
-                "valor": presentacion
+              nombre: "Presentación",
+              valor: presentacion,
             },
             {
-                "nombre": "Nombre",
-                "valor": nombre
+              nombre: "Nombre",
+              valor: nombre,
             },
             {
-                "nombre": "Nombre En Conamer",
-                "valor": nombreConamer
+              nombre: "Nombre En Conamer",
+              valor: nombreConamer,
             },
             {
-                "nombre": "Número U Homoclave  De Trámite Conamer",
-                "valor": numeroConamer
+              nombre: "Número U Homoclave  De Trámite Conamer",
+              valor: numeroConamer,
             },
             {
-                "nombre": "Nombre Del Formato",
-                "valor": nombreFormato
+              nombre: "Nombre Del Formato",
+              valor: nombreFormato,
             },
             {
-                "nombre": "Homoclave Del Formato En Conamer",
-                "valor": homoClaveFormatoConamer
+              nombre: "Homoclave Del Formato En Conamer",
+              valor: homoClaveFormatoConamer,
             },
             {
-                "nombre": "Periodicidad",
-                "valor": periodicidad
+              nombre: "Periodicidad",
+              valor: periodicidad,
             },
             {
-                "nombre": "Plazo Para Presentar",
-                "valor": plazoPresentar
+              nombre: "Plazo Para Presentar",
+              valor: plazoPresentar,
             },
             {
-                "nombre": "Sujeto A Respuesta?",
-                "valor": sujetoRespuestaRadios
+              nombre: "Sujeto A Respuesta?",
+              valor: sujetoRespuestaRadios,
             },
             {
-                "nombre": "Plazo Máximo Para Respuesta O Resolución",
-                "valor": plazoMaximoRespuestaResolucion
+              nombre: "Plazo Máximo Para Respuesta O Resolución",
+              valor: plazoMaximoRespuestaResolucion,
             },
             {
-                "nombre": "Tiene Monto De Derechos O Aprovechamientos?",
-                "valor": montosDerechosRadios
+              nombre: "Tiene Monto De Derechos O Aprovechamientos?",
+              valor: montosDerechosRadios,
             },
             {
-                "nombre": "Nombre Del Aprovechamiento",
-                "valor": nombreAprovechamiento
+              nombre: "Nombre Del Aprovechamiento",
+              valor: nombreAprovechamiento,
             },
             {
-                "nombre": "Monto Mxn 2020",
-                "valor": monto
+              nombre: "Monto Mxn 2020",
+              valor: monto,
             },
             {
-                "nombre": "Comentarios",
-                "valor": comentarios
+              nombre: "Comentarios",
+              valor: comentarios,
             },
             {
-                "nombre": "Revisión",
-                "valor": revision
+              nombre: "Revisión",
+              valor: revision,
             },
             {
-                "nombre": "Fecha De Ingreso",
-                "valor": fechaIngreso
+              nombre: "Fecha De Ingreso",
+              valor: fechaIngreso,
             },
             {
-                "nombre": "Fecha Maxima De Resolución",
-                "valor": fechaMaximaResolucion
+              nombre: "Fecha Maxima De Resolución",
+              valor: fechaMaximaResolucion,
             },
             {
-                "nombre": "Fecha Minima De Resolución",
-                "valor": fechaMinimaResolucion
+              nombre: "Fecha Minima De Resolución",
+              valor: fechaMinimaResolucion,
             },
             {
-                "nombre": "Plazo De Prevención",
-                "valor": plazoPrevencion
+              nombre: "Plazo De Prevención",
+              valor: plazoPrevencion,
             },
             {
-                "nombre": "Plazo Para Respuesta A Prevención",
-                "valor": plazoRespuestaPrevencion
+              nombre: "Plazo Para Respuesta A Prevención",
+              valor: plazoRespuestaPrevencion,
             },
             {
-                "nombre": "Plazo De Respuesta",
-                "valor": plazoRespuesta
+              nombre: "Plazo De Respuesta",
+              valor: plazoRespuesta,
             },
             {
-                "nombre": "Plazo Máximo De Respuesta",
-                "valor": plazoMaximoRespuesta
+              nombre: "Plazo Máximo De Respuesta",
+              valor: plazoMaximoRespuesta,
             },
             {
-                "nombre": "Nombre De La Resolución",
-                "valor": resolucion
+              nombre: "Nombre De La Resolución",
+              valor: resolucion,
             },
             {
-                "nombre": "Link",
-                "valor": regulacionLink
+              nombre: "Link",
+              valor: regulacionLink,
             },
             {
-                "nombre": "Referencia",
-                "valor": pdfReferencia
+              nombre: "Referencia",
+              valor: pdfReferencia,
             },
             {
-                "nombre": "Requisitos",
-                "valor": pdfRequisitos
-            }
-          ]
+              nombre: "Requisitos",
+              valor: pdfRequisitos,
+            },
+          ],
         },
         { withCredentials: true }
       );
@@ -369,202 +371,204 @@ const TramiteProvider = ({ children }) => {
         {
           tramites: [
             {
-                "nombre": "Tipo (autorización, Aviso, Aviso, Informe, Solicitud, Informe, Registro)",
-                "valor": tipo
+              nombre:
+                "Tipo (autorización, Aviso, Aviso, Informe, Solicitud, Informe, Registro)",
+              valor: tipo,
             },
             {
-                "nombre": "Periodo O Etapa Del Contrato (eta, Exploración, Desarrollo O Cierre)",
-                "valor": periodo
+              nombre:
+                "Periodo O Etapa Del Contrato (eta, Exploración, Desarrollo O Cierre)",
+              valor: periodo,
             },
             {
-                "nombre": "Eta Sin Transición",
-                "valor": etaSinTransicion
+              nombre: "Eta Sin Transición",
+              valor: etaSinTransicion,
             },
             {
-                "nombre": "Eta Con Transición",
-                "valor": etaConTransicion
+              nombre: "Eta Con Transición",
+              valor: etaConTransicion,
             },
             {
-                "nombre": "Antes De Exploración",
-                "valor": antesExploracion
+              nombre: "Antes De Exploración",
+              valor: antesExploracion,
             },
             {
-                "nombre": "Exploración (evaluación De Potencial)",
-                "valor": exploracionEvaluacionPotencial
+              nombre: "Exploración (evaluación De Potencial)",
+              valor: exploracionEvaluacionPotencial,
             },
             {
-                "nombre": "Exploración (incorporacion De Reservas)",
-                "valor": exploracionIncorporacionReservas
+              nombre: "Exploración (incorporacion De Reservas)",
+              valor: exploracionIncorporacionReservas,
             },
             {
-                "nombre": "Exploración (programa De  Evaluación)",
-                "valor": exploracionProgramaEvaluacion
+              nombre: "Exploración (programa De  Evaluación)",
+              valor: exploracionProgramaEvaluacion,
             },
             {
-                "nombre": "Revaluación",
-                "valor": revaluacion
+              nombre: "Revaluación",
+              valor: revaluacion,
             },
             {
-                "nombre": "Producción Temprana",
-                "valor": produccionTemprana
+              nombre: "Producción Temprana",
+              valor: produccionTemprana,
             },
             {
-                "nombre": "Antes De Desarrollo",
-                "valor": antesDesarrollo
+              nombre: "Antes De Desarrollo",
+              valor: antesDesarrollo,
             },
             {
-                "nombre": "Antes De Inicio De Producción",
-                "valor": antesInicioProduccion
+              nombre: "Antes De Inicio De Producción",
+              valor: antesInicioProduccion,
             },
             {
-                "nombre": "Producción Regular",
-                "valor": produccionRegular
+              nombre: "Producción Regular",
+              valor: produccionRegular,
             },
             {
-                "nombre": "Abandono",
-                "valor": abandono
+              nombre: "Abandono",
+              valor: abandono,
             },
             {
-                "nombre": "Devolución Del Área (etf)",
-                "valor": devolucionArea
+              nombre: "Devolución Del Área (etf)",
+              valor: devolucionArea,
             },
             {
-                "nombre": "Regulación",
-                "valor": regulacion
+              nombre: "Regulación",
+              valor: regulacion,
             },
             {
-                "nombre": "Regulación Corto",
-                "valor": regulacionCorto
+              nombre: "Regulación Corto",
+              valor: regulacionCorto,
             },
             {
-                "nombre": "Artículo O  Numeral",
-                "valor": articuloNumeral
+              nombre: "Artículo O  Numeral",
+              valor: articuloNumeral,
             },
             {
-                "nombre": "Dependencia(s)",
-                "valor": dependencias
+              nombre: "Dependencia(s)",
+              valor: dependencias,
             },
             {
-                "nombre": "Detonante",
-                "valor": detonante
+              nombre: "Detonante",
+              valor: detonante,
             },
             {
-                "nombre": "Aguas Profundas",
-                "valor": aguasProfundas
+              nombre: "Aguas Profundas",
+              valor: aguasProfundas,
             },
             {
-                "nombre": "Aguas Someras",
-                "valor": aguasSomeras
+              nombre: "Aguas Someras",
+              valor: aguasSomeras,
             },
             {
-                "nombre": "Terrestres",
-                "valor": terrestres
+              nombre: "Terrestres",
+              valor: terrestres,
             },
             {
-                "nombre": "Presentación",
-                "valor": presentacion
+              nombre: "Presentación",
+              valor: presentacion,
             },
             {
-                "nombre": "Nombre",
-                "valor": nombre
+              nombre: "Nombre",
+              valor: nombre,
             },
             {
-                "nombre": "Nombre En Conamer",
-                "valor": nombreConamer
+              nombre: "Nombre En Conamer",
+              valor: nombreConamer,
             },
             {
-                "nombre": "Número U Homoclave  De Trámite Conamer",
-                "valor": numeroConamer
+              nombre: "Número U Homoclave  De Trámite Conamer",
+              valor: numeroConamer,
             },
             {
-                "nombre": "Nombre Del Formato",
-                "valor": nombreFormato
+              nombre: "Nombre Del Formato",
+              valor: nombreFormato,
             },
             {
-                "nombre": "Homoclave Del Formato En Conamer",
-                "valor": homoClaveFormatoConamer
+              nombre: "Homoclave Del Formato En Conamer",
+              valor: homoClaveFormatoConamer,
             },
             {
-                "nombre": "Periodicidad",
-                "valor": periodicidad
+              nombre: "Periodicidad",
+              valor: periodicidad,
             },
             {
-                "nombre": "Plazo Para Presentar",
-                "valor": plazoPresentar
+              nombre: "Plazo Para Presentar",
+              valor: plazoPresentar,
             },
             {
-                "nombre": "Sujeto A Respuesta?",
-                "valor": sujetoRespuestaRadios
+              nombre: "Sujeto A Respuesta?",
+              valor: sujetoRespuestaRadios,
             },
             {
-                "nombre": "Plazo Máximo Para Respuesta O Resolución",
-                "valor": plazoMaximoRespuestaResolucion
+              nombre: "Plazo Máximo Para Respuesta O Resolución",
+              valor: plazoMaximoRespuestaResolucion,
             },
             {
-                "nombre": "Tiene Monto De Derechos O Aprovechamientos?",
-                "valor": montosDerechosRadios
+              nombre: "Tiene Monto De Derechos O Aprovechamientos?",
+              valor: montosDerechosRadios,
             },
             {
-                "nombre": "Nombre Del Aprovechamiento",
-                "valor": nombreAprovechamiento
+              nombre: "Nombre Del Aprovechamiento",
+              valor: nombreAprovechamiento,
             },
             {
-                "nombre": "Monto Mxn 2020",
-                "valor": monto
+              nombre: "Monto Mxn 2020",
+              valor: monto,
             },
             {
-                "nombre": "Comentarios",
-                "valor": comentarios
+              nombre: "Comentarios",
+              valor: comentarios,
             },
             {
-                "nombre": "Revisión",
-                "valor": revision
+              nombre: "Revisión",
+              valor: revision,
             },
             {
-                "nombre": "Fecha De Ingreso",
-                "valor": fechaIngreso
+              nombre: "Fecha De Ingreso",
+              valor: fechaIngreso,
             },
             {
-                "nombre": "Fecha Maxima De Resolución",
-                "valor": fechaMaximaResolucion
+              nombre: "Fecha Maxima De Resolución",
+              valor: fechaMaximaResolucion,
             },
             {
-                "nombre": "Fecha Minima De Resolución",
-                "valor": fechaMinimaResolucion
+              nombre: "Fecha Minima De Resolución",
+              valor: fechaMinimaResolucion,
             },
             {
-                "nombre": "Plazo De Prevención",
-                "valor": plazoPrevencion
+              nombre: "Plazo De Prevención",
+              valor: plazoPrevencion,
             },
             {
-                "nombre": "Plazo Para Respuesta A Prevención",
-                "valor": plazoRespuestaPrevencion
+              nombre: "Plazo Para Respuesta A Prevención",
+              valor: plazoRespuestaPrevencion,
             },
             {
-                "nombre": "Plazo De Respuesta",
-                "valor": plazoRespuesta
+              nombre: "Plazo De Respuesta",
+              valor: plazoRespuesta,
             },
             {
-                "nombre": "Plazo Máximo De Respuesta",
-                "valor": plazoMaximoRespuesta
+              nombre: "Plazo Máximo De Respuesta",
+              valor: plazoMaximoRespuesta,
             },
             {
-                "nombre": "Nombre De La Resolución",
-                "valor": resolucion
+              nombre: "Nombre De La Resolución",
+              valor: resolucion,
             },
             {
-                "nombre": "Link",
-                "valor": regulacionLink
+              nombre: "Link",
+              valor: regulacionLink,
             },
             {
-                "nombre": "Referencia",
-                "valor": pdfReferencia
+              nombre: "Referencia",
+              valor: pdfReferencia,
             },
             {
-                "nombre": "Requisitos",
-                "valor": pdfRequisitos
-            }
-          ]
+              nombre: "Requisitos",
+              valor: pdfRequisitos,
+            },
+          ],
         },
         { withCredentials: true }
       );
@@ -595,16 +599,16 @@ const TramiteProvider = ({ children }) => {
 
   const descargarTramite = async (_id) => {
     try {
-        const response = await axiosClient.post(`/pdf/${_id}`, {
-            withCredentials: true
-        })
-        return {msg: response.data.message, error: false}
-        // console.log(response.data.message);
+      const response = await axiosClient.post(`/pdf/${_id}`, {
+        withCredentials: true,
+      });
+      return { msg: response.data.message, error: false };
+      // console.log(response.data.message);
     } catch (error) {
-        return {msg: error.response.data.error, error: true}
-        // console.log(error.response.data.error);
+      return { msg: error.response.data.error, error: true };
+      // console.log(error.response.data.error);
     }
-  }
+  };
 
   return (
     <TramiteContext.Provider
@@ -616,7 +620,7 @@ const TramiteProvider = ({ children }) => {
         editarTramite,
         consultarTramites,
         buscarTramite,
-        descargarTramite
+        descargarTramite,
       }}
     >
       {children}
@@ -627,4 +631,3 @@ const TramiteProvider = ({ children }) => {
 export { TramiteProvider };
 
 export default TramiteContext;
-
