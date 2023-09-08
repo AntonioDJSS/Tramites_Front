@@ -1,7 +1,10 @@
 import axios from "axios";
 
-const axiosClient = axios.create({
-    baseURL: `${import.meta.env.VITE_BACKEND_URL}/api`
-});
+const axiosClient = axios.create(
+    {
+        baseURL: "http://localhost:8080/api",
+
+    }
+);
 
 export default axiosClient;

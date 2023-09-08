@@ -7,7 +7,7 @@ import Login from "./pages/public/Login";
 import Registrar from "./pages/public/Registrar";
 import OlvidePassword from "./pages/public/OlvidePassword";
 import NuevoPassword from "./pages/public/NuevoPassword";
-import ConfirmarCuenta from "./pages/public/ConfirmarCuenta";
+import ConfirmarCuenta from './pages/public/ConfirmarCuenta';
 import Buscar from "./pages/private/Dashboard/Buscar";
 import { AuthProvider } from "./context/AuthProvider";
 import { TramiteProvider } from "./context/TramiteProvider";
@@ -39,7 +39,7 @@ function App() {
                     path="olvide-password/:token"
                     element={<NuevoPassword />}
                   />
-                  <Route path="confirmar/:id" element={<ConfirmarCuenta />} />
+                  <Route path="confirmar/:token" element={<ConfirmarCuenta />} />
                 </Route>
 
                 <Route path="/dashboard" element={<PrincipalLayout />}>

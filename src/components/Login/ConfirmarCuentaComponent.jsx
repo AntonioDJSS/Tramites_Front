@@ -5,65 +5,112 @@ import axiosClient from "../../../config/axiosClient";
 
 const ConfirmarCuentaComponent = () => {
   const [alerta, setAlerta] = useState({});
-  const [cuentaConfirmada, setCuentaConfirmada] = useState(false);
 
   const params = useParams();
   const { token } = params;
 
   useEffect(() => {
-    peticionToken();
+    const checkAccount = async () => {
+      try {
+        const respuesta = await axiosClient.get(`/auth/confirmar/${token}`);
+        console.log(respuesta);
+        if ((respuesta.data.status = "successful")) {
+          setAlerta({
+            msg: "En hora buena ¡Tú tokes es valido!",
+            error: false,
+          });
+        }
+      } catch (erro) {
+        setAlerta({
+          msg: erro.response.data.message,
+          error: true,
+        });
+      }
+    };
+    checkAccount();
   }, []);
 
-  const peticionToken = async () => {
-    try {
-      const data = await axiosClient(`/auth/confirmar/${token}`);
-      console.log(data);
-      setAlerta({
-        msg: "Su cuenta ha sido confirmada exitosamente",
-        error: false,
-      });
-    } catch (error) {
-      setAlerta({ msg: error.response.data.msg, error: true });
-    } finally {
-      setCuentaConfirmada(true);
-    }
-  };
+
+  // useEffect(() => {
+  //   peticionToken();
+  // }, []);
+
+  // const peticionToken = async () => {
+  //   try {
+  //     const data = await axiosClient.get(`/auth/confirmar/${token}`);
+  //     console.log(data);
+  //     setAlerta({
+  //       msg: "Su cuenta ha sido confirmada exitosamente",
+  //       error: false,
+  //     });
+  //   } catch (error) {
+  //     setAlerta({ msg: error.response.data.msg, error: true });
+  //   } finally {
+  //     setCuentaConfirmada(true);
+  //   }
+  // };
 
   const { msg } = alerta;
 
   return (
     <>
-      {msg && <Alerta alerta={alerta} />}
-      <div className="flex min-h-full flex-1 flex-col justify-center py-12 bg-blue-600/20 h-screen sm:px-6 lg:px-8">
-        <img
-          className="absolute w-full h-full inset-0 blur-sm opacity-[0.15] object-cover hidden md:block"
-          src="https://img.freepik.com/foto-gratis/silos-agricolas-exterior-edificio_146671-19102.jpg?w=740&t=st=1688412992~exp=1688413592~hmac=0d0abcd5b26eda6ff4f8faab0e94660c3bf69b7ad1ee1096bc852653f1831aa3"
-          alt=""
-        />
-        <div className="relative mt-2 mx-auto sm:w-full sm:max-w-[480px]">
-          <div className="bg-white px-6 py-5 shadow sm:rounded-lg sm:px-12">
+    <div className="h-screen">
+      <div className="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+        <div className="w-full max-w-md">
+          <div>
             <img
-              className="mx-auto h-14 w-auto"
-              src="https://iktanstrategies.com/LogoStrategies.png"
+              className="mx-auto h-12 w-auto"
+              src="https://imgur.com/fWWekZ9.png"
               alt="Your Company"
             />
-            <h2 className="mt-5 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
-              Confirmar cuenta
+            <h2 className="mt-10 text-center text-3xl font-bold tracking-tight text-gray-900">
+              {`${
+                alerta.error
+                  ? "Tuvimos un problema con tu token, la cuenta no fue verificada."
+                  : "Tú cuenta fue verificada con exito, bienvenido."
+              } `}
             </h2>
-            <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-              {cuentaConfirmada && (
-                <Link
-                  className="font-bold text-center text-lg block text-slate-800 hover:text-[#3366CC]"
-                  to="/"
-                >
-                  Iniciar Sesión
-                </Link>
-              )}
-            </div>
           </div>
+          <div className="mt-10">{msg && <Alerta alerta={alerta} />}</div>
+          <div className="flex min-h-full items-center justify-center py-8">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="w-6 h-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d={`${
+                  alerta.error
+                    ? "M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                    : "M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z."
+                } `}
+              />
+            </svg>
+          </div>
+          <p className="mt-2 text-center text-sm text-gray-600">
+            {`${
+              alerta.error
+                ? "¿Crees que se trata de un error?"
+                : "Ahora puedes "
+            } `}
+            <a
+              href="/"
+              className="font-medium text-blue-600 hover:text-blue-700"
+            >
+              {`${
+                alerta.error ? "Comunicate con soporte." : "Iniciar Sesión"
+              } `}
+            </a>
+          </p>
         </div>
       </div>
-    </>
+    </div>
+  </>
   );
 };
 

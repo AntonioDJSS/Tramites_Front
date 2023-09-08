@@ -1,4 +1,4 @@
-import ConfirmarCuentaComponent from "../../components/Login/ConfirmarCuentaComponent"
+import ConfirmarCuentaComponent from '../../components/Login/ConfirmarCuentaComponent'
 
 const ConfirmarCuenta = () => {
   return (
@@ -6,4 +6,4 @@ const ConfirmarCuenta = () => {
   )
 }
 
-export default ConfirmarCuenta
+export default ConfirmarCuenta;

@@ -34,9 +34,9 @@ const PrincipalLayout = () => {
       <div>
         <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
 
-        <main className="py-8 lg:pl-72 bg-slate-900">
-          <div className="px-2 lg:pl-0 lg:pr-4">
-            <div className="bg-slate-100 rounded-3xl">
+        <main className="py-8 lg:pl-72 bg-white">
+          <div className="xl:px-2 lg:pl-0 lg:pr-4">
+            <div className=" rounded-xl xl:ml-10 lg:ml-0 lg:mr-4 xl:mr-4">
               <Outlet />
             </div>
           </div>

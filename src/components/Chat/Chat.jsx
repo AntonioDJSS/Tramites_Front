@@ -9,9 +9,14 @@ import axiosClient from "../../../config/axiosClient";
 const Chat = () => {
   const [messages, setMessages] = useState([]);
   const [inputMsg, setInputMsg] = useState("");
+  const [categoriasCoincidentes, setCategoriasCoincidentes] = useState([]);
+  const [isLoading, setIsLoading] = useState(false); // Estado para controlar la carga
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    setIsLoading(true); // Mostrar los puntos de carga
 
     try {
       const response = await axiosClient.post(
@@ -22,27 +27,36 @@ const Chat = () => {
         { withCredentials: true }
       );
 
+      const botResponse = response.data.data.respuesta.body;
+      const coincidentes =
+        response.data.data.recomendaciones.categoriasCoincidentes;
+
       setMessages((prevMessages) => [
         ...prevMessages,
         { text: inputMsg, type: "user" },
-        { text: response.data.data.body, type: "bot" },
+        { text: botResponse, type: "bot" },
       ]);
-      console.log(response);
+
+      setCategoriasCoincidentes(coincidentes);
+      console.log("Estas son las coincidencias:", coincidentes);
+
+      setInputMsg("");
     } catch (error) {
       console.error(error.response.data.error);
       setMessages((prevMessages) => [
         ...prevMessages,
         { text: inputMsg, type: "user" },
-        { text: "Hubo un error, intentelo mas tarde", type: "bot" },
+        { text: "Hubo un error, inténtelo más tarde", type: "bot" },
       ]);
+    } finally {
+      setIsLoading(false); // Ocultar los puntos de carga cuando se complete la solicitud
     }
-    setInputMsg("");
   };
 
   return (
     <div className="px-4 py-4 sm:flex sm:items-center sm:justify-between sm:px-6 lg:px-8">
       <div className="min-w-0 flex-1 border-b border-gray-200 pb-4">
-        {/* Navegacion Interna */}
+        {/* Navegación Interna */}
         <nav className="flex justify-between mb-3" aria-label="Breadcrumb">
           <ol role="list" className="flex items-center space-x-4">
             <li>
@@ -72,9 +86,13 @@ const Chat = () => {
             </li>
           </ol>
         </nav>
-        <div className="flex flex-col h-[37rem]  bg-white rounded-lg shadow">
+        <div className="flex flex-col max-h-full bg-white rounded-lg shadow">
           <div className="flex flex-col flex-1 p-4 overflow-y-scroll">
-            {messages.length > 0 ? (
+            {isLoading ? (
+              <div className="text-center text-gray-700 py-2">
+                Cargando...
+              </div>
+            ) : messages.length > 0 ? (
               <>
                 {messages.map((message, index) => (
                   <Mensaje
@@ -83,6 +101,37 @@ const Chat = () => {
                     type={message.type}
                   />
                 ))}
+                <div className="grid grid-cols-2 gap-4">
+                  {categoriasCoincidentes.map((categoria, index) => (
+                    <div className="bg-white shadow sm:rounded-lg">
+                    <div className="px-4 py-5 sm:p-6">
+                    <div
+                      key={index}
+                      className=""
+                    >
+                      <h2 className="text-xl font-semibold">
+                        {categoria.categoria}
+                      </h2>
+                      {categoria.recomendaciones &&
+                        categoria.recomendaciones.length > 0 && (
+                          <ul>
+                            {categoria.recomendaciones.map(
+                              (recomendacion, subIndex) => (
+                                <li key={subIndex}>
+                                  <a href={recomendacion.url}>
+                                    {recomendacion.nombre}
+                                  </a>
+                                </li>
+                              )
+                            )}
+                          </ul>
+                        )}
+                    </div>
+                    </div>
+                    </div>
+
+                  ))}
+                </div>
               </>
             ) : (
               <>

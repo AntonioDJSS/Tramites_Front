@@ -69,7 +69,7 @@ const Perfil = () => {
           <div className="flex flex-wrap items-start col-span-12 intro-y md:flex-nowrap">
             <div className="hidden mx-auto md:block text-slate-500">Mira o actualiza tu información.</div>
           </div>
-          <div className="border p-6 my-8 bg-white">
+          <div className="border hover:scale-95 hover:duration-300 duration-300 rounded-lg p-6 my-8 bg-white">
             <form
               onSubmit={handleSubmit}
               className="w-full mx-auto flex flex-col items-center gap-6 md:w-1/2"
