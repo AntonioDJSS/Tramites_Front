@@ -32,12 +32,12 @@ const OlvidePasswordForm = () => {
       );
       console.log(data)
       setAlerta({
-        msg: data.data.msg,
+        msg: data.data.message,
         error: false,
       });
     } catch (error) {
       setAlerta({
-        msg: error.response.data.msg,
+        msg: error.response.data.message,
         error: true,
       });
     }

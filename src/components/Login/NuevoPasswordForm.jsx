@@ -24,7 +24,7 @@ const NuevoPasswordForm = () => {
     } catch (error) {
       console.log(error);
       setAlerta({
-        msg: error.response.data.msg,
+        msg: error.response.data.message,
         error: true,
       });
     }
@@ -60,7 +60,7 @@ const NuevoPasswordForm = () => {
       setPasswordModificado(true);
     } catch (error) {
       setAlerta({
-        msg: error.response.data.msg,
+        msg: error.response.data.message,
         error: true,
       });
     }

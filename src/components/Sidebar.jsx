@@ -124,7 +124,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <div className="fixed inset-0 bg-gray-900/80" />
+            <div className="fixed inset-0 bg-black/40" />
           </Transition.Child>
 
           <div className="fixed inset-0 flex">
@@ -181,8 +181,8 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
                                   to={item.href}
                                   className={classNames(
                                     item.name === currentNavItem
-                                      ? "bg-slate-100 text-slate-900"
-                                      : "text-slate-200 hover:text-slate-900 hover:bg-slate-100",
+                                      ? "bg-[#ffc1c8] text-slate-900"
+                                      : "text-slate-200 hover:text-slate-900 hover:bg-[#ffc1c8]",
                                     "group cursor-pointer h-[50px] flex items-center gap-x-3 pl-5 mb-1 relative rounded-full z-10"
                                   )}
                                   onClick={() => handleItemClick(item.name)}
@@ -205,7 +205,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
                                       <Disclosure.Button
                                         className={classNames(
                                           item.name === currentNavItem
-                                            ? "bg-slate-100 text-slate-900"
+                                            ? "bg-[#ffc1c8] text-slate-900"
                                             : "text-slate-200 hover:text-slate-900 hover:bg-slate-100",
                                           "group cursor-pointer h-[50px] w-full flex items-center gap-x-3 pl-5 mb-1 relative rounded-full z-10"
                                         )}
@@ -241,7 +241,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
                                               to={subItem.href}
                                               className={classNames(
                                                 subItem.name === currentNavItem
-                                                  ? "bg-slate-100 text-slate-900"
+                                                  ? "bg-[#ffc1c8] text-slate-900"
                                                   : "text-slate-200 hover:text-slate-900 hover:bg-slate-100",
                                                 "group cursor-pointer h-[50px] flex items-center gap-x-3 pl-5 mb-1 relative rounded-full z-10"
                                               )}
@@ -263,7 +263,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
                           <li>
                             <a
                               onClick={(e) => handleCerrarSesion(e)}
-                              className="text-slate-200 hover:text-slate-900 hover:bg-slate-100 group cursor-pointer h-[50px] flex items-center gap-x-3 pl-5 mb-1 relative rounded-full z-10"
+                              className="text-[#ffc1c8] hover:text-slate-900 hover:bg-slate-100 group cursor-pointer h-[50px] flex items-center gap-x-3 pl-5 mb-1 relative rounded-full z-10"
                             >
                               <KeyIcon className="text-slate-200 group-hover:text-slate-900 h-6 w-6 shrink-0" />
                               Cerrar sesión
@@ -283,7 +283,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
       {/* Barra lateral estática para escritorio */}
       <div className="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col">
         {/* Componente de barra lateral, intercambie este elemento con otra barra lateral si lo desea */}
-        <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-slate-900 px-6">
+        <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-[#dd102a] px-6">
           <div className="flex pt-10">
           <div className="flex gap-x-4 items-center">
             <img
@@ -314,8 +314,8 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
                         // hover:text-white hover:bg-gray-800
                         className={classNames(
                           item.name === currentNavItem
-                            ? "bg-gray-800 text-slate-100 duration-500 "
-                            : "text-gray-400 duration-500 hover:text-slate-100 hover:bg-gray-800",
+                            ? "bg-[#ffffff20] text-slate-100 duration-500 "
+                            : "text-[#ffc1c8] duration-500 hover:text-[#ffc1c8] hover:bg-[#ffffff20]",
                           "group cursor-pointer h-[50px] pl-2  flex items-center gap-x-3  mb-1 relative rounded-md z-10"
                         )}
                         onClick={() => handleItemClick(item.name)}
@@ -325,8 +325,8 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
                           <item.icon
                             className={classNames(
                               item.name === currentNavItem
-                                ? "text-slate-100"
-                                : "text-gray-400 group-hover:text-slate-100",
+                                ? "text-[#ffc1c8]"
+                                : "text-[f7cfd4] group-hover:text-[#ffc1c8]",
                               "h-6 w-6 shrink-0"
                             )}
                             aria-hidden="true"
@@ -341,16 +341,16 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
                             <Disclosure.Button
                               className={classNames(
                                 item.name === currentNavItem
-                                  ? "bg-gray-800 text-slate-100 duration-500 "
-                                  : "text-gray-400 duration-500 hover:text-slate-100 hover:bg-gray-800",
+                                  ? "bg-[#ffffff20] text-[#ffc1c8] duration-500 "
+                                  : "text-[#ffc1c8] duration-500 hover:text-[#ffc1c8] hover:bg-[#ffffff20]",
                                 "group cursor-pointer h-[50px] w-full pl-2 flex items-center gap-x-3 mb-1 relative rounded-md z-10"
                               )}
                             >
                               <item.icon
                                 className={classNames(
                                   item.name === currentNavItem
-                                    ? "text-slate-100"
-                                    : "text-gray-400 group-hover:text-slate-100",
+                                    ? "text-[#ffc1c8]"
+                                    : "text-[#ffc1c8] group-hover:text-[#ffc1c8]",
                                   "h-6 w-6 shrink-0"
                                 )}
                                 aria-hidden="true"
@@ -362,7 +362,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
                                   open
                                     ? "transition ease-in duration-100 ml-auto mr-5 hidden xl:block transform rotate-90"
                                     : "",
-                                  "text-slate-200 group-hover:text-slate-100  ml-auto h-5 w-5 shrink-0 mr-5"
+                                  "text-[#ffc1c8] group-hover:text-[#ffc1c8]  ml-auto h-5 w-5 shrink-0 mr-5"
                                 )}
                                 aria-hidden="true"
                               />
@@ -376,8 +376,8 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
                                     to={subItem.href}
                                     className={classNames(
                                       subItem.name === currentNavItem
-                                        ? "bg-gray-800 text-slate-100 duration-500 "
-                                        : "text-gray-400 duration-500 hover:text-slate-100 hover:bg-gray-800",
+                                        ? "bg-[#ffffff20] text-slate-100 duration-500 "
+                                        : "text-[#ffc1c8] duration-500 hover:text-[#ffc1c8] hover:bg-[#ffffff20]",
                                       "group cursor-pointer h-[50px] w-full  pl-2 flex items-center gap-x-3 mb-1 relative rounded-md z-10"
                                     )}
                                     onClick={() =>
@@ -398,12 +398,12 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
                 <li>
                   <Link
                     onClick={(e) => handleCerrarSesion(e)}
-                    className=" text-slate-200 hover:text-white hover:bg-gray-800 group cursor-pointer duration-500 h-[50px] flex items-center gap-x-3 mb-1 relative rounded-md z-10"
+                    className=" text-[#ffc1c8] hover:text-white hover:bg-[#ffffff20] group cursor-pointer duration-500 h-[50px] flex items-center gap-x-3 mb-1 relative rounded-md z-10"
                   >
                     <div>
-                      <KeyIcon className="h-6 ml-2 w-6 shrink-0 text-gray-400 group-hover:text-slate-100" />
+                      <KeyIcon className="h-6 ml-2 w-6 shrink-0 text-[#ffc1c8] group-hover:text-[#ffc1c8]" />
                     </div>
-                    <div className="text-gray-400 group-hover:text-slate-100">
+                    <div className="text-[#ffc1c8] group-hover:text-[#ffc1c8]">
                       <span className={open ? "" : "hidden"}>
                         Cerrar sesión
                       </span>

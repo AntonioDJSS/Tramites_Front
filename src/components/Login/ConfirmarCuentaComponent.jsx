@@ -20,9 +20,9 @@ const ConfirmarCuentaComponent = () => {
             error: false,
           });
         }
-      } catch (erro) {
+      } catch (error) {
         setAlerta({
-          msg: erro.response.data.message,
+          msg: error.response.data.message,
           error: true,
         });
       }

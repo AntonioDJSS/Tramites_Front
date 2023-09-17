@@ -4,7 +4,7 @@ import { EllipsisHorizontalIcon } from "@heroicons/react/20/solid";
 import { Link } from "react-router-dom";
 
 const statuses = {
-  Iniciado: "text-green-700 bg-green-50 ring-green-600",
+  Iniciado: "text-green-700 bg-green-50 ring-greenn-400",
   "En curso": "text-yellow-600 bg-yellow-50 ring-yellow-500",
   Terminado: "text-red-700 bg-red-50 ring-red-600",
 };
@@ -16,8 +16,8 @@ function classNames(...classes) {
 export default function ListProyectos({ proyecto, handleEliminarProyecto, hanldeSelectProyecto }) {
   // console.log(proyecto);
   return (
-    <li className="overflow-hidden rounded-xl border border-gray-300 shadow">
-      <div className="flex items-center gap-x-4 border-b border-gray-900/5 bg-blue-100 p-6">
+    <li className="overflow-hidden rounded-md border">
+      <div className="flex items-center gap-x-4 border-b border-gray-900/5 bg-gray-50 p-6">
         <div className="text-sm font-medium leading-6 text-gray-900">
           {proyecto.nombre}
         </div>

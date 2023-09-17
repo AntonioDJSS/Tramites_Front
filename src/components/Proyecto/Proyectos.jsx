@@ -160,11 +160,11 @@ const Proyectos = () => {
                 </div>
                 <button
                   onClick={() => openModal()}
-                  className="relative w-40 px-4 py-1 border text-slate-50 rounded-md shadow hover:bg-blue-500 bg-blue-400 flex justify-evenly items-center"
+                  className="relative px-6 py-2  text-white rounded-lg  hover:bg-green-400 duration-500 bg-green-500 flex justify-evenly items-center"
                 >
-                  <PlusIcon className="text-slate-50 w-10" />
-                  <span className="text-base font-semibold">
-                    Crear proyecto
+                  <PlusIcon className="text-white w-6" />
+                  <span className="text-sm font-semibold">
+                    Nuevo proyecto
                   </span>
                 </button>
               </div>

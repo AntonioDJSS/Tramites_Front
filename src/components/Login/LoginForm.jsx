@@ -51,7 +51,7 @@ const LoginForm = () => {
     } catch (error) {
       console.log(error);
       setAlerta({
-        msg: error.response.data.msg,
+        msg: error.response.data.message,
         error: true,
       });
     }
