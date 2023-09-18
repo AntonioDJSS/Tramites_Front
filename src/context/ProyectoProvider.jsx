@@ -74,7 +74,7 @@ const ProyectoProvider = ({ children }) => {
         { withCredentials: true }
       );
       console.log(res);
-      // return { msg: res.data.message, error: false };
+      return { msg: res.response.data.message, error: false };
     } catch (error) {
       console.log(error);
     }
@@ -85,7 +85,7 @@ const ProyectoProvider = ({ children }) => {
       const res = await axiosClient.delete(`/proyecto/${id}`, {
         withCredentials: true,
       });
-      return { msg: res.data.message, error: false };
+      return { msg: res.response.data.message, error: false };
     } catch (error) {
       console.log(error);
     }

@@ -51,7 +51,8 @@ const AuthProvider = ({ children }) => {
         { nombre, correo },
         { withCredentials: true }
       );
-      return { msg: data.data.msg, error: false };
+      console.log(data)
+      return { msg: data.data.message, error: false };
     } catch (error) {
       return { msg: error.response.data.error, error: true };
     }
@@ -67,7 +68,7 @@ const AuthProvider = ({ children }) => {
           withCredentials: true,
         }
       );
-      return { msg: data.data.msg, error: false };
+      return { msg: data.data.message, error: false };
     } catch (error) {
       console.log(error);
       return { msg: error.response.data.error, error: true };
