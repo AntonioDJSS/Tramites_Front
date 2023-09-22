@@ -8,16 +8,19 @@ const Tramites = () => {
   const { selectedItem, setSelectedItem, descargarTramite } = useTramite();
   const [alerta, setAlerta] = useState({});
 
-  console.log(selectedItem);
+  console.log(selectedItem.reporte[0].url);
   if (selectedItem.length <= 0) return <Navigate to="/dashboard" />;
 
   const handleDescargarTramite = async () => {
     setAlerta({})
     const { msg, error } = await descargarTramite(selectedItem._id);
+
+    window.open(selectedItem.reporte[0].url)
     setAlerta({
       msg,
       error,
     });
+
   };
 
   const { msg } = alerta;

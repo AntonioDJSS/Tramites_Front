@@ -46,11 +46,24 @@ const Proyectos = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setAlerta({});
+
+    // Convierte la cadena "idt" en un arreglo separando por comas
+const idtArray = idt ? idt.split(',').map(id => id.trim()) : [];
+
+console.log("Datos antes de enviar al backend:");
+  console.log("idtArray:", idtArray);
+  console.log("nombre:", nombre);
+  console.log("descripcion:", descripcion);
+  console.log("empresa:", empresa);
+  console.log("fechainicio:", fechainicio);
+  console.log("fechafin:", fechafin);
+  console.log("estado:", estado);
+
     if (proyectoSelected._id) {
       // const {msg, error} =
       await editarProyecto(
         proyectoSelected._id,
-        idt,
+        idtArray,
         nombre,
         descripcion,
         empresa,
@@ -58,6 +71,7 @@ const Proyectos = () => {
         fechafin,
         estado
       );
+
       setModalIsOpen(false);
       setProyectoSelected([]);
       setAlerta({
@@ -67,7 +81,7 @@ const Proyectos = () => {
       setReload(true);
     } else {
       const { msg, error } = await crearProyecto(
-        idt,
+        idtArray,
         nombre,
         descripcion,
         empresa,

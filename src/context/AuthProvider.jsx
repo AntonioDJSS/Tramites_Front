@@ -78,9 +78,22 @@ const AuthProvider = ({ children }) => {
   // Cerrar sesión
   const cerrarSesion = async () => {
     try {
-      await axiosClient("/auth/cerrarSesion", { withCredentials: true });
+      const response = await axiosClient("/auth/cerrarSesion", { withCredentials: true });
+  
+      if (response.status === 200) {
+        // La solicitud fue exitosa y se considera que la sesión se cerró con éxito.
+        console.log("Sesión cerrada con éxito.");
+        // Puedes redirigir al usuario a la página de inicio de sesión u otra página relevante aquí.
+      } else {
+        // La solicitud tuvo éxito pero el servidor respondió con un estado diferente de 200.
+        // Puedes manejar diferentes códigos de estado aquí según tus necesidades.
+        console.log(`Error al cerrar sesión. Código de estado: ${response.status}`);
+        // Puedes mostrar un mensaje de error o realizar otras acciones según sea necesario.
+      }
     } catch (error) {
-      console.log(error);
+      // La solicitud tuvo un error, como un problema de red o una excepción en el servidor.
+      console.error("Error al intentar cerrar sesión:", error);
+      // Puedes mostrar un mensaje de error o realizar otras acciones según sea necesario.
     }
   };
 

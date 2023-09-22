@@ -45,7 +45,8 @@ const ProyectoProvider = ({ children }) => {
       );
       return { msg: res.data.message, error: false };
     } catch (error) {
-      console.log(error);
+      return { msg: 'Error al crear el proyecto', error: true };
+      
     }
   };
 
@@ -76,6 +77,7 @@ const ProyectoProvider = ({ children }) => {
       console.log(res);
       return { msg: res.response.data.message, error: false };
     } catch (error) {
+      return { msg: 'Error al editar el proyecto', error: true };
       console.log(error);
     }
   };
@@ -85,9 +87,15 @@ const ProyectoProvider = ({ children }) => {
       const res = await axiosClient.delete(`/proyecto/${id}`, {
         withCredentials: true,
       });
-      return { msg: res.response.data.message, error: false };
+
+      if (res && res.data) {
+        return { msg: res.data.message, error: false };
+      } else {
+        return { msg: 'Error al eliminar el proyecto', error: true };
+      }
     } catch (error) {
       console.log(error);
+      return { msg: 'Error al eliminar el proyecto', error: true };
     }
   };
 

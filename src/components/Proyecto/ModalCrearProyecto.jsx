@@ -1,5 +1,6 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Modal from "react-modal";
+
 
 const ModalCrearProyecto = ({
   modalIsOpen,
@@ -21,6 +22,7 @@ const ModalCrearProyecto = ({
   setEstado,
   proyectoSelected,
 }) => {
+
   useEffect(() => {
     console.log("aaa");
     if (proyectoSelected) {
@@ -135,6 +137,7 @@ const ModalCrearProyecto = ({
                       placeholder="Nombre de la empresa"
                       value={empresa}
                       onChange={(e) => setEmpresa(e.target.value)}
+
                     />
                   </div>
                   <div className="w-full">
@@ -179,15 +182,20 @@ const ModalCrearProyecto = ({
                   >
                     Tramites
                   </label>
-                  <input
-                    type="text"
+                  <select
                     name="tramites"
                     id="tramites"
-                    className="bg-slate-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-                    placeholder="name@company.com"
+                    className="bg-slate-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                     value={idt}
                     onChange={(e) => setIdt(e.target.value)}
-                  />
+                    
+                  >
+                    <option value="">Selecciona los Tramites</option>
+                    <option value="64f03a3b4987e5d442db7b2c">Opción 1</option>
+                    <option value="64f03a3b4987e5d442db7bc5">Opción 2</option>
+                    <option value="64f03a3b4987e5d442db7bf8">Opción 3</option>
+                  </select>
+
                 </div>
                 {Object.keys(proyectoSelected).length > 0 && (
                   <div className="w-full">
