@@ -101,7 +101,7 @@ const Chat = () => {
                     type={message.type}
                   />
                 ))}
-                <div className="grid grid-cols-2 gap-4">
+                {/* <div className="grid grid-cols-2 gap-4">
                   {categoriasCoincidentes.map((categoria, index) => (
                     <div className="bg-white shadow sm:rounded-lg">
                     <div className="px-4 py-5 sm:p-6">
@@ -131,7 +131,7 @@ const Chat = () => {
                     </div>
 
                   ))}
-                </div>
+                </div> */}
               </>
             ) : (
               <>

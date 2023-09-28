@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Modal from "react-modal";
-
+import useTramite from "../../hooks/useTramite"
 
 const ModalCrearProyecto = ({
   modalIsOpen,
@@ -23,8 +23,15 @@ const ModalCrearProyecto = ({
   proyectoSelected,
 }) => {
 
+  const {consultarTramites} = useTramite();
+  const [tramites, SetTramites] = useState([]);
   useEffect(() => {
-    console.log("aaa");
+    const getTramites = async() => {
+      const {respuesta} = await consultarTramites();
+      const {data} = respuesta;
+      console.log(data.data)
+      SetTramites(data?.data);
+    }
     if (proyectoSelected) {
       setIdt(proyectoSelected.idt);
       setNombre(proyectoSelected.nombre);
@@ -34,8 +41,8 @@ const ModalCrearProyecto = ({
       setFechafin(proyectoSelected.fechafin);
       setEstado(proyectoSelected.estado);
     }
+   getTramites();
   }, [proyectoSelected]);
-
   return (
     <Modal
       isOpen={modalIsOpen}
@@ -81,10 +88,7 @@ const ModalCrearProyecto = ({
               <h3 className="mb-4 text-xl font-medium text-slate-50">
                 Registrar proyecto
               </h3>
-              <form
-                onSubmit={handleSubmit}
-                className="space-y-6"
-              >
+              <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="flex gap-3 w-full">
                   <div className="w-full">
                     <label
@@ -137,7 +141,6 @@ const ModalCrearProyecto = ({
                       placeholder="Nombre de la empresa"
                       value={empresa}
                       onChange={(e) => setEmpresa(e.target.value)}
-
                     />
                   </div>
                   <div className="w-full">
@@ -188,14 +191,17 @@ const ModalCrearProyecto = ({
                     className="bg-slate-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                     value={idt}
                     onChange={(e) => setIdt(e.target.value)}
-                    
                   >
-                    <option value="">Selecciona los Tramites</option>
-                    <option value="64f03a3b4987e5d442db7b2c">Opción 1</option>
-                    <option value="64f03a3b4987e5d442db7bc5">Opción 2</option>
-                    <option value="64f03a3b4987e5d442db7bf8">Opción 3</option>
-                  </select>
 
+                    {tramites && tramites.map(tramite => (  <>
+                        {" "}
+                        <option value={tramite?._id}>
+                          {tramite?.tramites[24].valor}
+                        </option>
+                      </>)
+                    )}
+                    <option value="">Selecciona los Tramites</option>
+                  </select>
                 </div>
                 {Object.keys(proyectoSelected).length > 0 && (
                   <div className="w-full">

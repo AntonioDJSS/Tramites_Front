@@ -27,8 +27,14 @@ const ProyectoProvider = ({ children }) => {
     descripcion,
     empresa,
     fechainicio,
-    fechafin
+    fechafin, 
   ) => {
+    console.log(idt,
+      nombre,
+      descripcion,
+      empresa,
+      fechainicio,
+      fechafin)
     try {
       const res = await axiosClient.post(
         "/proyecto",
@@ -43,8 +49,10 @@ const ProyectoProvider = ({ children }) => {
         },
         { withCredentials: true }
       );
+      console.log(res)
       return { msg: res.data.message, error: false };
     } catch (error) {
+      console.log(error)
       return { msg: 'Error al crear el proyecto', error: true };
       
     }

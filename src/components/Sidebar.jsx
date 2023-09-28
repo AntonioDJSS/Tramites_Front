@@ -287,7 +287,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
           <div className="flex pt-10">
           <div className="flex gap-x-4 items-center">
             <img
-              src="https://i.imgur.com/fWWekZ9.png"
+              src="https://imgur.com/5pjJAnZ.png"
               className={`cursor-pointer duration-700 h-14 ${
                 open && "rotate-[360deg]"
               }`}

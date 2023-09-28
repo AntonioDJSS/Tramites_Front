@@ -26,7 +26,7 @@ const Proyectos = () => {
   const [proyectoSelected, setProyectoSelected] = useState({});
 
   useEffect(() => {
-    console.log("bbbbbbb");
+    setReload(false)
     const mostrarProyectos = async () => {
       const { data } = await obtenerProyectos();
       setProyectos(data.data);
@@ -48,19 +48,18 @@ const Proyectos = () => {
     setAlerta({});
 
     // Convierte la cadena "idt" en un arreglo separando por comas
-const idtArray = idt ? idt.split(',').map(id => id.trim()) : [];
+    const idtArray = idt ? idt.split(",").map((id) => id.trim()) : [];
 
-console.log("Datos antes de enviar al backend:");
-  console.log("idtArray:", idtArray);
-  console.log("nombre:", nombre);
-  console.log("descripcion:", descripcion);
-  console.log("empresa:", empresa);
-  console.log("fechainicio:", fechainicio);
-  console.log("fechafin:", fechafin);
-  console.log("estado:", estado);
+    console.log("Datos antes de enviar al backend:");
+    console.log("idtArray:", idtArray);
+    console.log("nombre:", nombre);
+    console.log("descripcion:", descripcion);
+    console.log("empresa:", empresa);
+    console.log("fechainicio:", fechainicio);
+    console.log("fechafin:", fechafin);
+    console.log("estado:", estado);
 
     if (proyectoSelected._id) {
-      // const {msg, error} =
       await editarProyecto(
         proyectoSelected._id,
         idtArray,
@@ -177,9 +176,7 @@ console.log("Datos antes de enviar al backend:");
                   className="relative px-6 py-2  text-white rounded-lg  hover:bg-green-400 duration-500 bg-green-500 flex justify-evenly items-center"
                 >
                   <PlusIcon className="text-white w-6" />
-                  <span className="text-sm font-semibold">
-                    Nuevo proyecto
-                  </span>
+                  <span className="text-sm font-semibold">Nuevo proyecto</span>
                 </button>
               </div>
               <ModalCrearProyecto
