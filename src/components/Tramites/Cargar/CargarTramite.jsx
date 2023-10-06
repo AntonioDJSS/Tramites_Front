@@ -102,12 +102,9 @@ const CargarTramite = () => {
               </li>
             </ol>
           </nav>
-          <div className="flex flex-wrap items-start col-span-12 intro-y sm:flex-nowrap">
-            <div className="hidden mx-auto md:block text-slate-500">
-              Cargar excel
-            </div>
-          </div>
-          <div className="rounded-md border p-6 mt-2 bg-white">
+          <div className="flex flex-wrap items-start col-span-12 intro-y sm:flex-nowrap"></div>
+          <div className="border hover:drop-shadow-2xl border-black/10 p-6 my-8 duration-300 bg-white">
+            {" "}
             <div className="px-4 sm:px-6 lg:px-8">
               <div className="sm:flex sm:items-center">
                 <div className="sm:flex-auto">
@@ -129,7 +126,7 @@ const CargarTramite = () => {
                     Cargar archivo:
                   </label>
                   <div
-                    className={`mt-2 flex justify-center rounded-lg border ${
+                    className={`mt-2 flex justify-center border ${
                       archivo
                         ? "border-indigo-600"
                         : "border-dashed border-gray-900/25"
@@ -141,7 +138,7 @@ const CargarTramite = () => {
                   >
                     <div className="text-center ">
                       <FolderIcon
-                        className="mx-auto w-28 text-green-300"
+                        className="mx-auto w-20 text-red-300"
                         aria-hidden="true"
                       />
                       {archivo ? (
@@ -149,16 +146,16 @@ const CargarTramite = () => {
                           <div>
                             <p className="font-bold text-lg">{archivo.name}</p>
 
-                            <div className="flex justify-between gap-x-8 mt-5 items-center ">
+                            <div className="flex justify-between duration-300 gap-x-8 mt-5 items-center ">
                               <button
-                                className="bg-green-600 w-28 hover:bg-green-800 text-slate-50 shadow rounded-md font-semibold text-lg py-1 px-3"
+                                className="bg-blue-400 w-40 duration-400 hover:bg-blue-500 text-slate-50 shadow rounded-2xl font-semibold text-lg py-2 px-5"
                                 type="submit"
                                 onClick={handleSubmit}
                               >
                                 Enviar
                               </button>
                               <button
-                                className="bg-red-600 w-28 hover:bg-red-800 text-slate-50 shadow rounded-md font-semibold text-lg py-1 px-3"
+                                className="bg-red-500 w-40 duration-400 hover:bg-red-600 text-slate-50 shadow rounded-2xl font-semibold text-lg py-2 px-5"
                                 onClick={() => setArchivo("")}
                               >
                                 Cancelar
@@ -173,18 +170,20 @@ const CargarTramite = () => {
                               htmlFor="file-upload"
                               className="relative cursor-pointer rounded-md bg-white font-semibold sm:text-slate-50 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 "
                             >
-                              <span className="sm:bg-slate-800 sm:px-2 sm:pb-1 sm:mr-1 rounded-md">
+                              <span className="sm:bg-blue-400 duration-300 hover:bg-blue-300 sm:px-4 sm:py-1 sm:mr-1 rounded-lg">
                                 Sube tu archivo
                               </span>
                               <input
-                                onChange={(e) =>  handleFileChange(e.target.files[0])}
+                                onChange={(e) =>
+                                  handleFileChange(e.target.files[0])
+                                }
                                 id="file-upload"
                                 name="file-upload"
                                 type="file"
                                 className="sr-only"
                               />
                             </label>
-                            <p className="pl-1">o arrastra y suelta</p>
+                            <p className="">o arrastra y suelta</p>
                           </div>
                           <p className="text-md  text-gray-600">XLSX</p>
                         </>

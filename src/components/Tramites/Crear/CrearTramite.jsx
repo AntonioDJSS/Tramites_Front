@@ -194,7 +194,7 @@ const Crear = () => {
   return (
     <>
       {msg && <Alerta alerta={alerta} />}
-      <div className="bg-slate-100 rounded-3xl">
+      <div className="">
         {/* Page title & actions */}
         <div className="px-4 py-4 sm:flex sm:items-center sm:justify-between sm:px-6 lg:px-8">
           <div className="min-w-0 flex-1 border-b border-gray-200 pb-4">
@@ -231,12 +231,8 @@ const Crear = () => {
                 ))}
               </ol>
             </nav>
-            <div className="flex flex-wrap items-start col-span-12 intro-y sm:flex-nowrap">
-              <div className="hidden mx-auto md:block text-slate-500">
-                Crear trámite
-              </div>
-            </div>
-            <div className="rounded-md border p-6 mt-2 bg-white">
+            <div className="flex flex-wrap items-start col-span-12 intro-y sm:flex-nowrap"></div>
+            <div className="border hover:drop-shadow-2xl border-black/10 p-6 my-8 duration-300 bg-white">
               <form className="" onSubmit={handleSumbit}>
                 {/* INPUTS  px-4 py-5 sm:p-6 */}
                 <div className="bg-white ">
@@ -1293,16 +1289,15 @@ const Crear = () => {
                       />
                     </div>
                   </div>
-
                   {/* Boton para enviar */}
-                  <div className="col-span-full sm:col-span-3 md:col-span-4 flex items-center justify-center">
-                    <button
-                      type="submit"
-                      className="transition duration-200 border inline-flex items-center justify-center py-2 px-3 rounded-md font-medium cursor-pointer focus:ring-4 focus:ring-green-500 focus:ring-opacity-20 focus-visible:outline-none bg-green-500 text-white border-green-500 mr-2 shadow-md"
-                    >
-                      Crear trámite
-                    </button>
-                  </div>
+                  <button
+                    type="submit"
+                    className="bg-blue-400 button rounded-3xl duration-500 md:mb-0 py-3 px-8 hover:bg-slate-900 hover:duration-500"
+                  >
+                    <span className="text-white font-medium text-[15px]">
+                      Crear tramíte
+                    </span>
+                  </button>
                 </div>
               </form>
             </div>

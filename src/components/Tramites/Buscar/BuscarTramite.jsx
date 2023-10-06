@@ -139,18 +139,14 @@ const BuscarTramite = () => {
             </ol>
           </nav>
           <div className="flex flex-wrap items-start col-span-12 intro-y sm:flex-nowrap">
-            <div className="hidden mx-auto md:block text-slate-500">
-              Buscar trámite
-            </div>
           </div>
-          <div className="rounded-md border p-6 mt-2 bg-white">
-            <div className="px-4 sm:px-6 lg:px-8">
+          <div className="border hover:drop-shadow-2xl border-black/10 p-6 my-8 duration-300 bg-white">            <div className="px-4 sm:px-6 lg:px-8">
               <div className="sm:flex sm:items-center">
                 <div className="sm:flex-auto">
                   <h1 className="text-base font-semibold leading-6 text-gray-900">
                     Tramites
                   </h1>
-                  <p className="mt-2 text-md text-gray-700">
+                  <p className="mt-2 lg:mr-8 text-md text-gray-700">
                     En este apartado puedes buscar y acceder a una vista previa
                     de los trámites que se encuentran en nuestra base de datos.
                   </p>
@@ -161,7 +157,7 @@ const BuscarTramite = () => {
                       <input
                         value={nombre}
                         onChange={(e) => setNombre(e.target.value)}
-                        className="transition duration-200 border w-full ease-in-out text-sm border-slate-200 shadow-sm rounded-md placeholder:text-slate-400/90 focus:ring-4 focus:ring-[#3366CC] focus:ring-opacity-20 focus:border-[#3366CC] focus:border-opacity-40  p-3 !box"
+                        className="transition duration-200  border w-full ease-in-out text-sm border-slate-200 shadow-lg shadow-black/5 rounded-xl placeholder:text-slate-400/90 focus:ring-2 focus:ring-[#3366CC]  focus:border-[#3366CC] focus:border-opacity-40  p-4 !box"
                         type="text"
                         placeholder="Buscar trámite por nombre..."
                       />

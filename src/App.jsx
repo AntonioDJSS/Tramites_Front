@@ -22,6 +22,7 @@ import PasswordAdmin from "./pages/private/Dashboard/Admin/PasswordAdmin";
 import Page404 from "./pages/public/Page404";
 import Proyecto from "./pages/private/Dashboard/Proyecto";
 import { ProyectoProvider } from "./context/ProyectoProvider";
+import ProyectoPage from "./components/Proyecto/ProyectoPage";
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function App() {
                 <Route path="/dashboard" element={<PrincipalLayout />}>
                   <Route index element={<Buscar />} />
                   <Route path="ver" element={<Ver />} />
+                  <Route path="proyecto/:id" element={<ProyectoPage />} />
                   <Route path="crear" element={<Crear />} />
                   <Route path="editar-buscar" element={<EditarBuscar />} />
                   <Route path="editar" element={<Editar />} />

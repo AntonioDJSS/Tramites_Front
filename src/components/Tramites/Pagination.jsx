@@ -8,7 +8,7 @@ export default function Pagination({ anteriorPage, siguientePage, paginate }) {
     >
       <div className="hidden sm:block">
         <p className="text-sm text-gray-700">
-          Mostrando 10 resultados de la página{" "}
+          Mostrando resultados de la página{" "}
           <span className="font-medium">{paginate}</span>
         </p>
       </div>
@@ -16,14 +16,14 @@ export default function Pagination({ anteriorPage, siguientePage, paginate }) {
         {paginate > 1 && (
           <Link
             onClick={() => anteriorPage()}
-            className="relative inline-flex items-center rounded-md bg-gray-100 px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus-visible:outline-offset-0"
+            className="relative inline-flex items-center rounded-3xl duration-200 bg-gray-50 px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-200 focus-visible:outline-offset-0"
           >
             Anterior
           </Link>
         )}
         <Link
           onClick={() => siguientePage()}
-          className="relative ml-3 inline-flex items-center rounded-md bg-gray-100 px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus-visible:outline-offset-0"
+          className="relative ml-3 inline-flex items-center rounded-3xl duration-200 bg-gray-50 px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-200 focus-visible:outline-offset-0"
         >
           Siguiente
         </Link>

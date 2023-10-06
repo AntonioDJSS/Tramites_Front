@@ -86,8 +86,8 @@ const Chat = () => {
             </li>
           </ol>
         </nav>
-        <div className="flex flex-col max-h-full bg-white rounded-lg shadow">
-          <div className="flex flex-col flex-1 p-4 overflow-y-scroll">
+        <div className="border hover:drop-shadow-2xl border-black/10 p-6 my-8 duration-300 bg-white">
+          <div className="flex flex-col flex-1 px-5 overflow-y-scroll">
             {isLoading ? (
               <div className="text-center text-gray-700 py-2">
                 Cargando...
@@ -135,7 +135,7 @@ const Chat = () => {
               </>
             ) : (
               <>
-                <div className="text-center text-2xl text-gray-700 py-8">
+                <div className="text-center text-xl text-black/60 py-16">
                   ¡Bienvenid@! <br /> ¿En qué puedo ayudarte hoy?
                 </div>
               </>
@@ -147,11 +147,11 @@ const Chat = () => {
               value={inputMsg}
               onChange={(e) => setInputMsg(e.target.value)}
               placeholder="Escribe tu mensaje..."
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring focus:border-slate-300"
+              className="w-full px-4 py-2 border mt-5 pt-5 focus:outline-none"
             />
             <button
               type="submit"
-              className="mt-2 px-4 py-2 bg-blue-900 font-medium text-white rounded-lg hover:bg-blue-950 focus:outline-none focus:ring focus:border-blue-300"
+              className="mt-2 px-12 py-3 bg-black/10 font-medium text-black/70 rounded-3xl duration-300 hover:bg-black/5 focus:outline-none focus:ring focus:border-blue-300"
             >
               Enviar
             </button>

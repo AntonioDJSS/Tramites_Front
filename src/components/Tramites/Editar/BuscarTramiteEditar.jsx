@@ -139,11 +139,9 @@ const BuscarTramiteEditar = () => {
             </ol>
           </nav>
           <div className="flex flex-wrap items-start col-span-12 intro-y sm:flex-nowrap">
-            <div className="hidden mx-auto md:block text-slate-500">
-              Buscar trámite
-            </div>
+            
           </div>
-          <div className="rounded-md border p-6 mt-2 bg-white">
+          <div className="border hover:drop-shadow-2xl border-black/10 p-6 my-8 duration-300 bg-white">
             <div className="px-4 sm:px-6 lg:px-8">
               <div className="sm:flex sm:items-center">
                 <div className="sm:flex-auto">

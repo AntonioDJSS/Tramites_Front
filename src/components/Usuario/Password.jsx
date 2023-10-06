@@ -82,68 +82,67 @@ const Password = () => {
             </ol>
           </nav>
           <div className="flex flex-wrap items-start col-span-12 intro-y sm:flex-nowrap">
-            <div className="hidden mx-auto md:block text-slate-500">
-              Actualiza tu contraseña.
-            </div>
           </div>
-          <div className="border p-6 my-8 bg-white">
+          <div className="border hover:drop-shadow-2xl border-black/10 p-6 my-8 duration-300 bg-white">
             <form
               onSubmit={handleSubmit}
               className="w-full mx-auto flex flex-col items-center gap-6 md:w-1/2"
             >
               <h3 className="text-2xl md:text-4xl my-5 font-medium">Contraseña</h3>
-              <div className="relative my-3 ">
+              <div className="relative my-3">
                 <img
                   alt="pfp"
                   src="https://iktan-training-production.s3.amazonaws.com/Usuarios/Foto+de+Perfil+Default/default.png"
-                  className="shadow-xl border rounded-full h-28 w-full align-middle border-none  "
+                  className="border hover:scale-110 duration-200 border-black/20 rounded-full h-28 w-full align-middle"
                 />
               </div>
-              <div className="flex flex-col w-full gap-6  ">
-                <div className="">
+              <div className="flex flex-col w-full gap-6">
+              <div className="rounded-md px-3 pb-1.5 pt-2.5 shadow-sm ring-1 ring-inset ring-gray-300 ">
+              <div className="mt-2">
                   <label
                     htmlFor="password"
-                    className="block text-sm font-medium text-black"
+                    className="block text-xs font-medium text-gray-900"
                   >
                     Nueva contraseña:
                   </label>
-                  <div className="relative mt-1  shadow-sm">
+                  </div>
                     <input
                       type="password"
                       name="password"
                       id="password"
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
-                      className="pl-2 pt-3 pb-3 text-gray-700 block w-full  border border-slate-500 py-2 px-3 shadow-sm focus:text-black focus:border-[#3366CC] focus:outline-none focus:ring-blue-500 sm:text-sm"
+                      className="block w-full border-0 p-0 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                     />
-                  </div>
                 </div>
 
-                <div className="">
+                <div className="flex flex-col w-full gap-6">
+                <div className="rounded-md px-3 pb-1.5 pt-2.5 shadow-sm ring-1 ring-inset ring-gray-300 ">
+                <div className="mt-2">
                   <label
                     htmlFor="repetir-password"
-                    className="block text-sm font-medium text-black"
+                    className="block text-xs font-medium text-gray-900"
                   >
                     Repetir contraseña:
                   </label>
-                  <div className="relative mt-1  shadow-sm">
                     <input
                       type="password"
                       name="repetir-password"
                       id="repetir-password"
                       value={repetirPassword}
                       onChange={(e) => setRepetirPassword(e.target.value)}
-                      className="pl-2 pt-3 pb-3 text-gray-700 block w-full  border border-slate-500 py-2 px-3 shadow-sm focus:text-black focus:border-[#3366CC] focus:outline-none focus:ring-blue-500 sm:text-sm"
+                      className="block w-full border-0 p-0 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                     />
+                  </div>
                   </div>
                 </div>
 
-                <div className="bg-white  py-3 text-right  flex ">
+                <div className="bg-white pb-3 text-right flex">
                   <button
                     type="submit"
-                    className="bg-slate-950 button duration-500 md:mb-0 py-2 px-4  hover:bg-slate-900 hover:duration-500"
+                    className="bg-blue-400 button rounded-3xl duration-500 md:mb-0 py-3 px-6 hover:bg-slate-900 hover:duration-500"
                   >
-                    <span className="text-white font-bold text-[15px]">
+                    <span className="text-white font-medium text-[15px]">
                       Actualizar contraseña
                     </span>
                   </button>

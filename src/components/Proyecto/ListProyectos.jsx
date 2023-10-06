@@ -14,8 +14,10 @@ function classNames(...classes) {
 }
 
 export default function ListProyectos({ proyecto, handleEliminarProyecto, hanldeSelectProyecto }) {
-  // console.log(proyecto);
+  console.log(proyecto.fechaPrevencion)
   return (
+    <>
+    
     <li className="overflow-hidden rounded-md border">
       <div className="flex items-center gap-x-4 border-b border-gray-900/5 bg-gray-50 p-6">
         <div className="text-sm font-medium leading-6 text-gray-900">
@@ -39,7 +41,7 @@ export default function ListProyectos({ proyecto, handleEliminarProyecto, hanlde
               <Menu.Item>
                 {({ active }) => (
                   <a
-                    href="#"
+                    href={`proyecto/${proyecto._id}`}
                     className={classNames(
                       active ? "bg-gray-50" : "",
                       "block px-3 py-1 text-sm leading-6 text-gray-900"
@@ -81,19 +83,19 @@ export default function ListProyectos({ proyecto, handleEliminarProyecto, hanlde
       <dl className="-my-3 divide-y divide-gray-100 px-6 py-4 text-sm leading-6">
         <div className="flex justify-between gap-x-4 py-3">
           <dt className="text-gray-500">Descripción:</dt>
-          <dd className="text-gray-700">{proyecto.descripcion}</dd>
+          <dd className="text-gray-700">{proyecto.notas}</dd>
         </div>
         <div className="flex justify-between gap-x-4 py-3">
-          <dt className="text-gray-500">Empresa</dt>
-          <dd className="text-gray-700">{proyecto.empresa}</dd>
+          <dt className="text-gray-500">Fecha de ingreso de tramite:</dt>
+          <dd className="text-gray-700">{proyecto.fechaIngresoTramite}</dd>
         </div>
         <div className="flex justify-between gap-x-4 py-3">
-          <dt className="text-gray-500">Fecha de inicio:</dt>
-          <dd className="text-gray-700">{proyecto.fechafin}</dd>
+          <dt className="text-gray-500">Fecha de respuesta:</dt>
+          <dd className="text-gray-700">{proyecto.fechaRespuesta}</dd>
         </div>
         <div className="flex justify-between gap-x-4 py-3">
-          <dt className="text-gray-500">Fecha de finalización:</dt>
-          <dd className="text-gray-700">{proyecto.fechainicio}</dd>
+          <dt className="text-gray-500">Fecha de respuesta de prevención:</dt>
+          <dd className="text-gray-700">{proyecto.fechaRespuestaPrevencion}</dd>
         </div>
         <div className="flex justify-between gap-x-4 py-3">
           <dt className="text-gray-500">Estado:</dt>
@@ -110,5 +112,6 @@ export default function ListProyectos({ proyecto, handleEliminarProyecto, hanlde
         </div>
       </dl>
     </li>
+    </>
   );
 }

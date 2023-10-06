@@ -62,19 +62,20 @@ const LoginForm = () => {
   return (
     <>
       {msg && <Alerta alerta={alerta} />}
-      <div className="flex min-h-full flex-1 flex-col justify-center py-12 bg-blue-600/20 h-screen sm:px-6 lg:px-8">
+      <div className="flex min-h-full  flex-1 flex-col justify-center py-12 bg-gray-300/80 h-screen sm:px-6 lg:px-8">
         <img
-          className="absolute w-full h-full inset-0 blur-sm opacity-10 object-cover hidden md:block"
+          className="absolute w-full h-full inset-0 blur-sm opacity-5 object-cover hidden md:block"
           src="https://img.freepik.com/foto-gratis/silos-agricolas-exterior-edificio_146671-19102.jpg?w=740&t=st=1688412992~exp=1688413592~hmac=0d0abcd5b26eda6ff4f8faab0e94660c3bf69b7ad1ee1096bc852653f1831aa3"
           alt=""
         />
         <div className=" relative mt-4 mx-auto sm:w-full sm:max-w-[480px]">
-          <div className="bg-white px-6 py-5 shadow sm:rounded-lg sm:px-12">
+          <div className="bg-white px-6 py-5 shadow sm:rounded-3xl duration-500 hover:scale-105 sm:px-12">
             <img
-              className="mx-auto h-14 w-auto"
-              src="https://iktanstrategies.com/LogoStrategies.png"
+              className="mx-auto h-14 w-auto hover:scale-110 duration-300"
+              src="https://imgur.com/yvRmEvN.png"
               alt="Your Company"
             />
+            <div className="border-t mt-5"></div>
             <h2 className="mt-5 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
               Inicia sesión en tu cuenta.
             </h2>
@@ -159,7 +160,6 @@ const LoginForm = () => {
                   </button>
                 </div>
               </div>
-
               <div className="flex items-center justify-between">
                 <div className="text-sm leading-6">
                   <Link
@@ -179,11 +179,11 @@ const LoginForm = () => {
                   </Link>
                 </div>
               </div>
-
+              <div className="border-t mt-5"></div>
               <div>
                 <button
                   type="submit"
-                  className="flex w-full justify-center rounded-md bg-slate-900 px-3 py-4 text-sm font-semibold leading-6 duration-300 hover:duration-300 text-white shadow-sm hover:bg-slate-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                  className="flex w-full justify-center rounded-3xl hover:scale-95 bg-red-600 px-3 py-4 text-sm font-semibold leading-6 duration-300 hover:duration-300 text-white shadow-sm hover:bg-red-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 >
                   Iniciar sesión
                 </button>

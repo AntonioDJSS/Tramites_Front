@@ -4,6 +4,7 @@ import { Bars3Icon } from "@heroicons/react/24/outline";
 import useAuth from "../hooks/useAuth";
 import Sidebar from "../components/Sidebar";
 import Loading from "../components/Loading";
+import Navbar from "../components/Navbar";
 // import useTramite from "../hooks/useTramite";
 
 const PrincipalLayout = () => {
@@ -18,7 +19,7 @@ const PrincipalLayout = () => {
   return (
     <>
       {/* MENU RESPOSIVO */}
-      <div className="sticky top-0 z-40 flex items-center gap-x-6 bg-slate-900 px-4 py-4 shadow-sm sm:px-6 lg:hidden">
+      <div className=" flex items-center gap-x-6 bg-slate-900 px-4 py-4 shadow-sm sm:px-6 lg:hidden">
         <div className="flex-1 text-sm font-semibold leading-6 text-slate-50">
           Dashboard
         </div>
@@ -32,11 +33,12 @@ const PrincipalLayout = () => {
         </button>
       </div>
       <div>
+      <Navbar/>
         <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
 
         <main className="py-8 lg:pl-72 bg-white">
           <div className="xl:px-2 lg:pl-0 lg:pr-4">
-            <div className=" rounded-xl xl:ml-10 lg:ml-0 lg:mr-4 xl:mr-4">
+            <div className=" rounded-xl xl:ml-10 mt-20 lg:ml-0 lg:mr-4 xl:mr-4">
               <Outlet />
             </div>
           </div>
