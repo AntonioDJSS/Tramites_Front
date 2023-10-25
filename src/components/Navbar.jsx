@@ -15,7 +15,7 @@ export default function Navbar() {
   };
 
   return (
-    <div>
+    <div className="hidden lg:block xl:block 2xl:block">
       <Popover className="fixed z-50 w-full bg-gradient-to-r from-red-500 via-red-500 to-red-600">
         <div className="mx-auto max-w-7xl border-b border-white/20">
           <div className="flex items-center justify-between py-6 md:justify-start md:space-x-10">

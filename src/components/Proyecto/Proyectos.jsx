@@ -16,21 +16,18 @@ const Proyectos = () => {
   // form states
   const [idt, setIdt] = useState("");
   const [nombre, setNombre] = useState("");
-  const [descripcion, setDescripcion] = useState("");
-  const [empresa, setEmpresa] = useState("");
-  const [fechainicio, setFechainicio] = useState("");
-  const [fechafin, setFechafin] = useState("");
-  const [estado, setEstado] = useState("");
+  const [estado, setEstado] = useState("Pendiente");
+  const [fechaIngresoTramite, setFechaIngresoTramite] = useState("");
+  const [notas, setNotas] = useState("");
   const [reload, setReload] = useState(false);
-  //
+
   const [proyectoSelected, setProyectoSelected] = useState({});
 
   useEffect(() => {
-    setReload(false)
+    setReload(false);
     const mostrarProyectos = async () => {
       const { data } = await obtenerProyectos();
       setProyectos(data.data);
-      console.log(data.data)
     };
     mostrarProyectos();
   }, [reload]);
@@ -40,7 +37,7 @@ const Proyectos = () => {
   };
 
   const closeModal = () => {
-    setProyectoSelected([]);
+    setProyectoSelected({});
     setModalIsOpen(false);
   };
 
@@ -49,31 +46,21 @@ const Proyectos = () => {
     setAlerta({});
 
     // Convierte la cadena "idt" en un arreglo separando por comas
-    const idtArray = idt ? idt.split(",").map((id) => id.trim()) : [];
-
-    console.log("Datos antes de enviar al backend:");
-    console.log("idtArray:", idtArray);
-    console.log("nombre:", nombre);
-    console.log("descripcion:", descripcion);
-    console.log("empresa:", empresa);
-    console.log("fechainicio:", fechainicio);
-    console.log("fechafin:", fechafin);
-    console.log("estado:", estado);
+    let idtArray = null;
+    if (!proyectoSelected._id) {
+      idtArray = idt ? idt.split(",").map((id) => id.trim()) : [];
+    }
 
     if (proyectoSelected._id) {
-      await editarProyecto(
+      const { msg, error } = await editarProyecto(
         proyectoSelected._id,
-        idtArray,
         nombre,
-        descripcion,
-        empresa,
-        fechainicio,
-        fechafin,
-        estado
+        estado,
+        fechaIngresoTramite,
+        notas
       );
-
       setModalIsOpen(false);
-      setProyectoSelected([]);
+      setProyectoSelected({});
       setAlerta({
         msg,
         error,
@@ -83,10 +70,9 @@ const Proyectos = () => {
       const { msg, error } = await crearProyecto(
         idtArray,
         nombre,
-        descripcion,
-        empresa,
-        fechainicio,
-        fechafin
+        estado,
+        fechaIngresoTramite,
+        notas
       );
       setModalIsOpen(false);
       setAlerta({
@@ -95,10 +81,9 @@ const Proyectos = () => {
       });
       setIdt("");
       setNombre("");
-      setDescripcion("");
-      setEmpresa("");
-      setFechainicio("");
-      setFechafin("");
+      setEstado("");
+      setFechaIngresoTramite("");
+      setNotas("");
       setReload(true);
     }
   };
@@ -119,7 +104,6 @@ const Proyectos = () => {
   };
 
   const { msg } = alerta;
-
   return (
     <>
       {msg && <Alerta alerta={alerta} />}
@@ -155,9 +139,10 @@ const Proyectos = () => {
               </li>
             </ol>
           </nav>
-          <div className="flex flex-wrap items-start col-span-12 intro-y sm:flex-nowrap">
-          </div>
-          <div className="border hover:drop-shadow-2xl border-black/10 p-6 my-8 duration-300 bg-white">            <div className="px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-wrap items-start col-span-12 intro-y sm:flex-nowrap"></div>
+          <div className="border hover:drop-shadow-2xl border-black/10 p-6 my-8 duration-300 bg-white">
+            {" "}
+            <div className="px-4 sm:px-6 lg:px-8">
               <div className="sm:flex sm:items-center sm:justify-between">
                 <div className="sm:flex-auto grow w-full">
                   <h1 className="text-base font-semibold leading-6 text-gray-900">
@@ -170,7 +155,7 @@ const Proyectos = () => {
                 </div>
                 <button
                   onClick={() => openModal()}
-                  className="relative px-6 py-2  text-white rounded-lg  hover:bg-green-400 duration-500 bg-green-500 flex justify-evenly items-center"
+                  className="relative px-6 py-2  text-white rounded-lg  hover:bg-blue-300 duration-500 bg-blue-400 flex justify-evenly items-center"
                 >
                   <PlusIcon className="text-white w-6" />
                   <span className="text-sm font-semibold">Nuevo proyecto</span>
@@ -180,20 +165,16 @@ const Proyectos = () => {
                 modalIsOpen={modalIsOpen}
                 closeModal={closeModal}
                 handleSubmit={handleSubmit}
-                idt={idt}
+                idtArray={idt}
                 nombre={nombre}
-                descripcion={descripcion}
-                empresa={empresa}
-                fechainicio={fechainicio}
-                fechafin={fechafin}
                 estado={estado}
+                fechaIngresoTramite={fechaIngresoTramite}
+                notas={notas}
                 setIdt={setIdt}
                 setNombre={setNombre}
-                setDescripcion={setDescripcion}
-                setEmpresa={setEmpresa}
-                setFechainicio={setFechainicio}
-                setFechafin={setFechafin}
                 setEstado={setEstado}
+                setFechaIngresoTramite={setFechaIngresoTramite}
+                setNotas={setNotas}
                 proyectoSelected={proyectoSelected}
               />
               <div className="-mx-4 mt-5 sm:-mx-0 min-w-full ">
@@ -205,7 +186,6 @@ const Proyectos = () => {
                     <ListProyectos
                       key={proyecto.id}
                       proyecto={proyecto}
-                      // handleEditarProyecto={handleEditarProyecto}
                       handleEliminarProyecto={handleEliminarProyecto}
                       hanldeSelectProyecto={hanldeSelectProyecto}
                     />

@@ -4,9 +4,9 @@ import { EllipsisHorizontalIcon } from "@heroicons/react/20/solid";
 import { Link } from "react-router-dom";
 
 const statuses = {
-  Iniciado: "text-green-700 bg-green-50 ring-greenn-400",
+  "Iniciado": "text-green-700 bg-green-50 ring-greenn-400",
   "En curso": "text-yellow-600 bg-yellow-50 ring-yellow-500",
-  Terminado: "text-red-700 bg-red-50 ring-red-600",
+  "Terminado": "text-red-700 bg-red-50 ring-red-600",
 };
 
 function classNames(...classes) {
@@ -14,7 +14,7 @@ function classNames(...classes) {
 }
 
 export default function ListProyectos({ proyecto, handleEliminarProyecto, hanldeSelectProyecto }) {
-  console.log(proyecto.fechaPrevencion)
+  // console.log("Proyecto", proyecto)
   return (
     <>
     
@@ -81,21 +81,17 @@ export default function ListProyectos({ proyecto, handleEliminarProyecto, hanlde
         </Menu>
       </div>
       <dl className="-my-3 divide-y divide-gray-100 px-6 py-4 text-sm leading-6">
+      <div className="flex justify-between gap-x-4 py-3">
+          <dt className="text-gray-500">Id del proyecto:</dt>
+          <dd className="text-gray-700 truncate">{proyecto._id}</dd>
+        </div>
         <div className="flex justify-between gap-x-4 py-3">
-          <dt className="text-gray-500">Descripción:</dt>
-          <dd className="text-gray-700">{proyecto.notas}</dd>
+          <dt className="text-gray-500">Notas:</dt>
+          <dd className="text-gray-700 truncate">{proyecto.notas}</dd>
         </div>
         <div className="flex justify-between gap-x-4 py-3">
           <dt className="text-gray-500">Fecha de ingreso de tramite:</dt>
           <dd className="text-gray-700">{proyecto.fechaIngresoTramite}</dd>
-        </div>
-        <div className="flex justify-between gap-x-4 py-3">
-          <dt className="text-gray-500">Fecha de respuesta:</dt>
-          <dd className="text-gray-700">{proyecto.fechaRespuesta}</dd>
-        </div>
-        <div className="flex justify-between gap-x-4 py-3">
-          <dt className="text-gray-500">Fecha de respuesta de prevención:</dt>
-          <dd className="text-gray-700">{proyecto.fechaRespuestaPrevencion}</dd>
         </div>
         <div className="flex justify-between gap-x-4 py-3">
           <dt className="text-gray-500">Estado:</dt>
@@ -103,7 +99,7 @@ export default function ListProyectos({ proyecto, handleEliminarProyecto, hanlde
             <div
               className={classNames(
                 statuses[proyecto.estado],
-                "rounded-md py-1 px-2 text-xs font-medium ring-1 ring-inset"
+                "rounded-md bg-black/5 py-1 px-2 text-xs font-medium border ring-inset"
               )}
             >
               {proyecto.estado}

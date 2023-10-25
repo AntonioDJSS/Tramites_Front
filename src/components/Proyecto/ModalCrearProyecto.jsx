@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Modal from "react-modal";
 import useTramite from "../../hooks/useTramite"
+import { button } from "@material-tailwind/react";
 
 const ModalCrearProyecto = ({
   modalIsOpen,
@@ -8,18 +9,14 @@ const ModalCrearProyecto = ({
   handleSubmit,
   idt,
   nombre,
-  descripcion,
-  empresa,
-  fechainicio,
-  fechafin,
   estado,
+  fechaIngresoTramite,
+  notas,
   setIdt,
   setNombre,
-  setDescripcion,
-  setEmpresa,
-  setFechainicio,
-  setFechafin,
   setEstado,
+  setFechaIngresoTramite,
+  setNotas,
   proyectoSelected,
 }) => {
 
@@ -29,17 +26,14 @@ const ModalCrearProyecto = ({
     const getTramites = async() => {
       const {respuesta} = await consultarTramites();
       const {data} = respuesta;
-      console.log(data.data)
       SetTramites(data?.data);
     }
     if (proyectoSelected) {
       setIdt(proyectoSelected.idt);
       setNombre(proyectoSelected.nombre);
-      setDescripcion(proyectoSelected.descripcion);
-      setEmpresa(proyectoSelected.empresa);
-      setFechainicio(proyectoSelected.fechainicio);
-      setFechafin(proyectoSelected.fechafin);
-      setEstado(proyectoSelected.estado);
+      setEstado(proyectoSelected.estado)
+      setFechaIngresoTramite(proyectoSelected.fechaIngresoTramite);
+      setNotas(proyectoSelected.notas);
     }
    getTramites();
   }, [proyectoSelected]);
@@ -48,7 +42,7 @@ const ModalCrearProyecto = ({
       isOpen={modalIsOpen}
       onRequestClose={closeModal}
       contentLabel="Authentication Modal"
-      className="Modal"
+      className="Moda"
       overlayClassName="Overlay"
     >
       {/* Main modal */}
@@ -56,14 +50,14 @@ const ModalCrearProyecto = ({
         id="authentication-modal"
         tabIndex="-1"
         aria-hidden="true"
-        className="fixed top-0 left-0 right-0 bottom-0 flex items-center justify-center z-50 w-full h-full p-4 overflow-x-hidden overflow-y-auto"
+        className="fixed bg-black/30 top-0 left-0 right-0 bottom-0 flex items-center justify-center z-50 w-full h-full p-4 overflow-x-hidden overflow-y-auto"
       >
         <div className="relative w-full max-w-xl">
           {/* Modal content */}
-          <div className="relative bg-slate-900 rounded-lg shadow ">
+          <div className="relative bg-white shadow-2xl shadow-black/10 hover:shadow-black/20 hover:scale-105 duration-500 border border-1 ">
             <button
               type="button"
-              className="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+              className="absolute top-3 right-2.5 text-gray-400 bg-transparent duration-300 hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600/10"
               data-modal-hide="authentication-modal"
               onClick={closeModal}
             >
@@ -85,15 +79,16 @@ const ModalCrearProyecto = ({
               <span className="sr-only">Close modal</span>
             </button>
             <div className="px-6 py-6 lg:px-8">
-              <h3 className="mb-4 text-xl font-medium text-slate-50">
-                Registrar proyecto
+              <h3 className="mb-4 font-medium text-black">
+                Cargar proyecto
               </h3>
+              <div className="border-1 border-t mb-4"></div>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="flex gap-3 w-full">
                   <div className="w-full">
                     <label
                       htmlFor="nombre"
-                      className="block mb-2 text-sm font-medium text-slate-50"
+                      className="block mb-2 text-sm font-medium text-gray-500"
                     >
                       Nombre del proyecto:
                     </label>
@@ -108,80 +103,75 @@ const ModalCrearProyecto = ({
                     />
                   </div>
                 </div>
-                <div className="w-full">
-                  <label
-                    htmlFor="desc"
-                    className="block mb-2 text-sm font-medium text-slate-50"
-                  >
-                    Descripción:
-                  </label>
-                  <textarea
-                    type="text"
-                    name="desc"
-                    id="desc"
-                    className="bg-slate-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-                    placeholder="Breve descripción del proyecto"
-                    value={descripcion}
-                    onChange={(e) => setDescripcion(e.target.value)}
-                  />
-                </div>
                 <div className="flex gap-3 w-full">
                   <div className="w-full">
                     <label
-                      htmlFor="empresa"
-                      className="block mb-2 text-sm font-medium text-slate-50"
+                      htmlFor="nombre"
+                      className="block mb-2 text-sm font-medium text-gray-500"
                     >
-                      Empresa:
+                      Notas:
                     </label>
                     <input
                       type="text"
-                      name="empresa"
-                      id="empresa"
+                      name="nombre"
+                      id="nombre"
                       className="bg-slate-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-                      placeholder="Nombre de la empresa"
-                      value={empresa}
-                      onChange={(e) => setEmpresa(e.target.value)}
-                    />
-                  </div>
-                  <div className="w-full">
-                    <label
-                      htmlFor="fecha-inicio"
-                      className="block mb-2 text-sm font-medium text-slate-50"
-                    >
-                      Fecha de inicio:
-                    </label>
-                    <input
-                      type="date"
-                      name="fecha-inicio"
-                      id="fecha-inicio"
-                      className="bg-slate-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-                      value={fechainicio}
-                      onChange={(e) => setFechainicio(e.target.value)}
+                      placeholder="Nombre"
+                      value={notas}
+                      onChange={(e) => setNotas(e.target.value)}
                     />
                   </div>
                 </div>
+      
+      
                 <div className="flex gap-3 w-full">
                   <div className="w-1/2">
                     <label
                       htmlFor="fecha-fin"
-                      className="block mb-2 text-sm font-medium text-slate-50"
+                      className="block mb-2 text-sm font-medium text-gray-500"
                     >
-                      Fecha de finalización:
+                      Fecha de Ingreso del Tramite:
                     </label>
                     <input
                       type="date"
                       name="fecha-fin"
                       id="fecha-fin"
                       className="bg-slate-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-                      value={fechafin}
-                      onChange={(e) => setFechafin(e.target.value)}
+                      value={fechaIngresoTramite}
+                      onChange={(e) => setFechaIngresoTramite(e.target.value)}
                     />
                   </div>
                 </div>
-                <div className="w-full">
+                <div className="flex gap-3 w-full">
+                  <div className="w-full">
+                    <label
+                      htmlFor="estado"
+                      className="block mb-2 text-sm font-medium text-gray-500"
+                    >
+                      Estado:
+                    </label>
+
+                    <select
+                      name="estado"
+                      id="estado"
+                      className="bg-slate-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                      value={estado}
+                      onChange={(e) => setEstado(e.target.value)}
+                    >
+                      <option value="Iniciado">Iniciado</option>
+                      <option value="En curso">En curso</option>
+                      <option value="Terminado">Terminado</option>
+                      {/* Agrega más opciones según tus necesidades */}
+                    </select>
+                  </div>
+                </div>
+                {Object.keys(proyectoSelected).length > 0 ? (
+                  <button className="hidden"></button>
+                ) : (
+                    <div className="w-full">
                   <label
                     htmlFor="tramites"
-                    className="block mb-2 text-sm font-medium text-slate-50"
+                    className="block mb-2 text-sm font-medium text-gray-500"
                   >
                     Tramites
                   </label>
@@ -203,36 +193,19 @@ const ModalCrearProyecto = ({
                     <option value="">Selecciona los Tramites</option>
                   </select>
                 </div>
-                {Object.keys(proyectoSelected).length > 0 && (
-                  <div className="w-full">
-                    <label
-                      htmlFor="estado"
-                      className="block mb-2 text-sm font-medium text-slate-50"
-                    >
-                      Estado:
-                    </label>
-                    <input
-                      type="text"
-                      name="estado"
-                      id="estado"
-                      className="bg-slate-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-                      placeholder="Estado"
-                      value={estado}
-                      onChange={(e) => setEstado(e.target.value)}
-                    />
-                  </div>
                 )}
+          
                 {Object.keys(proyectoSelected).length > 0 ? (
                   <input
                     type="submit"
-                    value="Editar"
-                    className="w-1/5 rounded-md hover:bg-yellow-500 text-slate-50 font-semibold py-1 cursor-pointer bg-yellow-600"
-                  />
+                    value="Editar proyecto"
+                    className="justify-center rounded-3xl hover:scale-95 bg-blue-400 px-10 py-3  text-sm font-semibold leading-6 duration-300 hover:duration-300 text-white shadow-sm hover:bg-blue-300 focus-visible:outline "
+                    />
                 ) : (
                   <input
                     type="submit"
-                    value="Crear"
-                    className="w-1/5 rounded-md hover:bg-green-500 text-slate-50 font-semibold py-1 cursor-pointer bg-green-600"
+                    value="Crear proyecto"
+                    className="justify-center rounded-3xl hover:scale-95 bg-blue-400 px-10 py-3  text-sm font-semibold leading-6 duration-300 hover:duration-300 text-white shadow-sm hover:bg-blue-300 focus-visible:outline "
                   />
                 )}
               </form>

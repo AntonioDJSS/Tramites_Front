@@ -5,6 +5,7 @@ export default {
     extend: {},
   },
   plugins: [
+    require("@material-tailwind/react/utils/withMT"),
     require('@tailwindcss/forms'), // Official forms plugin
     require('@tailwindcss/typography'), // Official typography plugin
     require('@tailwindcss/aspect-ratio'), // Official aspect-ratio plugin

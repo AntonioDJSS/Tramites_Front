@@ -24,69 +24,52 @@ const ProyectoProvider = ({ children }) => {
   const crearProyecto = async (
     idt,
     nombre,
-    descripcion,
-    empresa,
-    fechainicio,
-    fechafin, 
+    estado,
+    fechaIngresoTramite,
+    notas
   ) => {
-    console.log(idt,
-      nombre,
-      descripcion,
-      empresa,
-      fechainicio,
-      fechafin)
     try {
       const res = await axiosClient.post(
         "/proyecto",
         {
           idt,
           nombre,
-          descripcion,
-          empresa,
-          fechainicio,
-          fechafin,
-          estado: "Iniciado",
+          estado,
+          fechaIngresoTramite,
+          notas,
         },
         { withCredentials: true }
       );
-      console.log(res)
+      console.log(res);
       return { msg: res.data.message, error: false };
     } catch (error) {
-      console.log(error)
-      return { msg: 'Error al crear el proyecto', error: true };
-      
+      console.log(error);
+      return { msg: "Error al crear el proyecto", error: true };
     }
   };
 
   const editarProyecto = async (
     id,
-    idt,
     nombre,
-    descripcion,
-    empresa,
-    fechainicio,
-    fechafin,
-    estado
+    estado,
+    fechaIngresoTramite,
+    notas
   ) => {
     try {
       const res = await axiosClient.put(
         `/proyecto/${id}`,
         {
-          idt,
           nombre,
-          descripcion,
-          empresa,
-          fechainicio,
-          fechafin,
           estado,
+          fechaIngresoTramite,
+          notas,
         },
         { withCredentials: true }
       );
       console.log(res);
-      return { msg: res.response.data.message, error: false };
+      return { msg: res.data.message, error: false };
     } catch (error) {
-      return { msg: 'Error al editar el proyecto', error: true };
-      console.log(error);
+      return { msg: "Error al editar el proyecto", error: true };
     }
   };
 
@@ -99,13 +82,34 @@ const ProyectoProvider = ({ children }) => {
       if (res && res.data) {
         return { msg: res.data.message, error: false };
       } else {
-        return { msg: 'Error al eliminar el proyecto', error: true };
+        return { msg: "Error al eliminar el proyecto", error: true };
       }
     } catch (error) {
       console.log(error);
-      return { msg: 'Error al eliminar el proyecto', error: true };
+      return { msg: "Error al eliminar el proyecto", error: true };
     }
   };
+
+  const cargarArchivo = async (archivo, idProyecto, idRequisito) => {
+    try {
+      const formData = new FormData();
+      formData.append("archivo", archivo);
+      formData.append("idProyecto", idProyecto);
+      formData.append("idRequisito", idRequisito);
+  
+      const response = await axiosClient.post(
+        "/proyecto/cargarArchivoRequisito",
+        formData,
+        { withCredentials: true }
+      );
+  
+      console.log(response);
+      return { msg: response.data.msg, error: false };
+    } catch (error) {
+      console.error(error);
+      return { msg: error.response.data.msg, error: true };
+    }
+  };  
 
   return (
     <ProyectoContext.Provider
@@ -114,6 +118,7 @@ const ProyectoProvider = ({ children }) => {
         crearProyecto,
         editarProyecto,
         eliminarProyecto,
+        cargarArchivo
       }}
     >
       {children}
