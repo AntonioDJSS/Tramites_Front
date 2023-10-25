@@ -31,13 +31,13 @@ const ProyectoPage = () => {
   const toggleSwitch = (index) => {
     // Crea una copia del array switchStates actual
     const updatedSwitchStates = [...switchStates];
-  
+
     // Cambia el estado en el índice especificado
     updatedSwitchStates[index] = !updatedSwitchStates[index];
-  
+
     // Actualiza el estado switchStates con el nuevo array
     setSwitchStates(updatedSwitchStates);
-  };  
+  };
 
   let formData = new FormData();
   formData.append("archivo", archivo);
@@ -356,30 +356,58 @@ const ProyectoPage = () => {
                                       </svg>
                                     </Tooltip>
                                   </div>
-                                  <div className="ml-4 flex-shrink-0">
-                                    <Switch
-                                      checked={switchStates[index]}
-                                      onChange={() => toggleSwitch(index)}
-                                      className={classNames(
-                                        switchStates[index]
-                                          ? "bg-green-500"
-                                          : "bg-gray-200",
-                                        "relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out "
-                                      )}
-                                    >
-                                      <span className="sr-only">
-                                        Use setting
-                                      </span>
-                                      <span
-                                        aria-hidden="true"
-                                        className={classNames(
-                                          switchStates[index]
-                                            ? "translate-x-5"
-                                            : "translate-x-0",
-                                          "pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"
-                                        )}
-                                      />
-                                    </Switch>
+                                  <div>
+                                    {requisito.archivoRequisito &&
+                                    requisito.archivoRequisito[0] &&
+                                    requisito.archivoRequisito[0].url ? (
+                                      <>
+                                        <div className="ml-4 flex-shrink-0">
+                                          <Switch
+                                            checked={true} // Establece el estado como true
+                                            onChange={() => toggleSwitch(index)}
+                                            className={classNames(
+                                              "bg-green-500", // Establece el color a verde
+                                              "relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out "
+                                            )}
+                                          >
+                                            <span className="sr-only">
+                                              Use setting
+                                            </span>
+                                            <span
+                                              aria-hidden="true"
+                                              className={classNames(
+                                                "translate-x-5", // Establece la posición en 5 (verde)
+                                                "pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"
+                                              )}
+                                            />
+                                          </Switch>
+                                        </div>
+                                      </>
+                                    ) : (
+                                      <>
+                                        <div className="ml-4 flex-shrink-0">
+                                          <Switch
+                                            checked={false} // Establece el estado como false
+                                            onChange={() => toggleSwitch(index)}
+                                            className={classNames(
+                                              "bg-gray-200", // Establece el color a gris
+                                              "relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out "
+                                            )}
+                                          >
+                                            <span className="sr-only">
+                                              Use setting
+                                            </span>
+                                            <span
+                                              aria-hidden="true"
+                                              className={classNames(
+                                                "translate-x-0", // Establece la posición en 0 (gris)
+                                                "pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"
+                                              )}
+                                            />
+                                          </Switch>
+                                        </div>
+                                      </>
+                                    )}
                                   </div>
                                 </li>
 
@@ -431,25 +459,25 @@ const ProyectoPage = () => {
                                               .length > 0 ? (
                                               <>
                                                 <div className="flex justify-center text-black duration-300 hover:text-black/50">
-                                                <a
-                                                  href={
-                                                    requisito
-                                                      .archivoRequisito[0].url
-                                                  }
-                                                >
-                                                  <h1 className="text-sm font-semibold mr-2">
-                                                    Descargar archivo
-                                                  </h1>
-                                                </a>
-                                                <svg
-                                                  xmlns="http://www.w3.org/2000/svg"
-                                                  viewBox="0 0 20 20"
-                                                  fill="currentColor"
-                                                  className="w-4 h-4 mt-1"
-                                                >
-                                                  <path d="M10.75 2.75a.75.75 0 00-1.5 0v8.614L6.295 8.235a.75.75 0 10-1.09 1.03l4.25 4.5a.75.75 0 001.09 0l4.25-4.5a.75.75 0 00-1.09-1.03l-2.955 3.129V2.75z" />
-                                                  <path d="M3.5 12.75a.75.75 0 00-1.5 0v2.5A2.75 2.75 0 004.75 18h10.5A2.75 2.75 0 0018 15.25v-2.5a.75.75 0 00-1.5 0v2.5c0 .69-.56 1.25-1.25 1.25H4.75c-.69 0-1.25-.56-1.25-1.25v-2.5z" />
-                                                </svg>
+                                                  <a
+                                                    href={
+                                                      requisito
+                                                        .archivoRequisito[0].url
+                                                    }
+                                                  >
+                                                    <h1 className="text-sm font-semibold mr-2">
+                                                      Descargar archivo
+                                                    </h1>
+                                                  </a>
+                                                  <svg
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    viewBox="0 0 20 20"
+                                                    fill="currentColor"
+                                                    className="w-4 h-4 mt-1"
+                                                  >
+                                                    <path d="M10.75 2.75a.75.75 0 00-1.5 0v8.614L6.295 8.235a.75.75 0 10-1.09 1.03l4.25 4.5a.75.75 0 001.09 0l4.25-4.5a.75.75 0 00-1.09-1.03l-2.955 3.129V2.75z" />
+                                                    <path d="M3.5 12.75a.75.75 0 00-1.5 0v2.5A2.75 2.75 0 004.75 18h10.5A2.75 2.75 0 0018 15.25v-2.5a.75.75 0 00-1.5 0v2.5c0 .69-.56 1.25-1.25 1.25H4.75c-.69 0-1.25-.56-1.25-1.25v-2.5z" />
+                                                  </svg>
                                                 </div>
                                               </>
                                             ) : (
